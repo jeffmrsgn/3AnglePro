@@ -465,7 +465,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EC4FCDEB-9459-4E90-8A05-406BDFCA72DC}" Name="3AnglePro" PrjFilePath="3AnglePro\3AnglePro.plcproj" TmcFilePath="3AnglePro\3AnglePro.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{84AC2760-0D04-C0AB-4331-C2ECC6AC06AF}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{5DA0BFC9-661E-2AAE-B9D4-4398F6FCDEAE}">
 					<Name>3AnglePro Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -1879,7 +1879,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 					<Name>Image</Name>
 				</Image>
 				<Box Id="16" BoxType="9099" BoxFlags="#x00000020">
-					<Name>T1 (SI6/SC6 2Ax Y)</Name>
+					<Name>192 Carriage/Turret</Name>
 					<ImageId>1007</ImageId>
 					<EtherCAT SlaveType="2" PdiType="#x8034" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="17" EoeType="1" VendorId="#x000000b9" ProductCode="#x00001970" RevisionNo="#x000017d4" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutStateChange1="20000" TimeoutStateChange2="20000" TimeoutStateChange3="20000" TimeoutStateChange4="20000" PortPhys="17" MaxSlotCount="3" Type="SI6/SC6 2Ax Y" Desc="SI6/SC6 2Ax Y" PortABoxInfo="#x00ffffff">
 						<SyncMan>001000042600010001000000300000080004001026010000</SyncMan>
@@ -2602,7 +2602,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="AK1 (EK1200)^IS1 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_3 TxPDO"/>
 				<Link VarA="AK1 (EK1200)^IS1 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_3 RxPDO"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 2 (EtherCAT)^T1 (SI6/SC6 2Ax Y)">
+			<OwnerB Name="TIID^Device 2 (EtherCAT)^192 Carriage/Turret">
 				<Link VarA="AK1 (EK1200)^SI1 (EL6910)^ConnectionInputs^Message_11 TxPDO" VarB="Module 3 (Safety FSoE)^Safety to Slave^FSOE"/>
 				<Link VarA="AK1 (EK1200)^SI1 (EL6910)^ConnectionOutputs^Message_11 RxPDO" VarB="Module 3 (Safety FSoE)^Safety to Master^FSOE"/>
 			</OwnerB>
@@ -2694,7 +2694,7 @@ Bit1: Value bigger/equal Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^TwinSAFE.SafeErrAck" VarB="StandardOutputs^Standard In Var 1"/>
 				<Link VarA="PlcTask Outputs^TwinSAFE.SafeRUN" VarB="StandardOutputs^Standard In Var 2"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 2 (EtherCAT)^T1 (SI6/SC6 2Ax Y)">
+			<OwnerB Name="TIID^Device 2 (EtherCAT)^192 Carriage/Turret">
 				<Link VarA="FasTask Inputs^.PDO_CARRIAGEax_IN" VarB="Module 1 (Carriage)^Axis A to Master^IN1"/>
 				<Link VarA="FasTask Inputs^.PDO_TURRETax_IN" VarB="Module 2 (Turret)^Axis B to Master^IN2"/>
 				<Link VarA="FasTask Outputs^.PDO_CARRIAGEax_OUT" VarB="Module 1 (Carriage)^Axis A to Slave^OUT1"/>

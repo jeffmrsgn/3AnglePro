@@ -15,8 +15,8 @@ VAR
 	ActivateJogFast: BOOL; //trigger for fast movement
 	VeloManJog: REAL := 75; //speed of the regular jog movement
 	VeloManJogFAST: REAL := 50; // speed of the fast movement
-	AccManJOG: REAL := 50; //general ACC
-	DccManJog: REAL := 100; // general DCC
+	AccManJOG: REAL := 250; //general ACC
+	DccManJog: REAL := 250; // general DCC
 	MaxTorque: WORD := 150; //150% of max torque
 	
 	

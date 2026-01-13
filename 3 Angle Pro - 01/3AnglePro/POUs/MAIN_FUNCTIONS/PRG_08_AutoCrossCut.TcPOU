@@ -20,7 +20,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[	IF		NOT bSafetyOK OR IN_FaultReset OR NOT OUT_bSawON
+      <ST><![CDATA[	IF		NOT bSafetyOK OR IN_FaultReset OR NOT OUT_bSawON OR bAnyServoError
 	THEN	iStep	:=	0;
 	END_IF
 

@@ -7,6 +7,8 @@ Project("{B1E792BE-AA5F-4E3C-8C82-674BF9C0715B}") = "3 Angle Pro - 01", "3 Angle
 EndProject
 Project("{FD9F1D59-E000-42F3-8744-88DE1BE93C06}") = "TwinCAT Measurement Project1", "TwinCAT Measurement Project1\TwinCAT Measurement Project1.tcmproj", "{F9DE2D2B-F149-4E17-AF4C-DFB51B868368}"
 EndProject
+Project("{FD9F1D59-E000-42F3-8744-88DE1BE93C06}") = "Z_Axis", "..\Scope\Z_Axis\Z_Axis\Z_Axis.tcmproj", "{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|TwinCAT CE7 (ARMV7) = Debug|TwinCAT CE7 (ARMV7)
@@ -85,6 +87,16 @@ Global
 		{CCE8DC8D-069D-47A4-AA50-9548216C96D9}.Release|TwinCAT RT (x64).Build.0 = Release|TwinCAT RT (x64)
 		{CCE8DC8D-069D-47A4-AA50-9548216C96D9}.Release|TwinCAT RT (x86).ActiveCfg = Release|TwinCAT RT (x86)
 		{CCE8DC8D-069D-47A4-AA50-9548216C96D9}.Release|TwinCAT RT (x86).Build.0 = Release|TwinCAT RT (x86)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Debug|TwinCAT CE7 (ARMV7).ActiveCfg = Debug|TwinCAT CE7 (ARMV7)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Debug|TwinCAT OS (ARMT2).ActiveCfg = Debug|TwinCAT OS (ARMT2)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Debug|TwinCAT OS (x64).ActiveCfg = Debug|TwinCAT OS (x64)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Debug|TwinCAT RT (x64).ActiveCfg = Debug|TwinCAT RT (x64)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Debug|TwinCAT RT (x86).ActiveCfg = Debug|TwinCAT RT (x86)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Release|TwinCAT CE7 (ARMV7).ActiveCfg = Release|TwinCAT CE7 (ARMV7)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Release|TwinCAT OS (ARMT2).ActiveCfg = Release|TwinCAT OS (ARMT2)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Release|TwinCAT OS (x64).ActiveCfg = Release|TwinCAT OS (x64)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Release|TwinCAT RT (x64).ActiveCfg = Release|TwinCAT RT (x64)
+		{69B5EDF9-22D2-4E48-A452-0CA07FB353E3}.Release|TwinCAT RT (x86).ActiveCfg = Release|TwinCAT RT (x86)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
