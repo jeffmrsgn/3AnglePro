@@ -164,8 +164,8 @@ VAR_GLOBAL
 	bEchainCrashPosRight: BOOL;
 	
 	bTurretMedian: BOOL;
-	bTurretCW: BOOL;
-	bTurretCCW: BOOL;
+	//bTurretCW: BOOL;
+	//bTurretCCW: BOOL;
 	
 	// Visualization Variables
 	bRemote: BOOL;
@@ -204,7 +204,7 @@ VAR_GLOBAL
 	bAutoCrossCutDouble: BOOL;
 	bAutoCrossCutReady: BOOL;
 	lCarriageMedian: LREAL;
-	bCarriageCentreReference: BOOL;
+	//bCarriageCentreReference: BOOL;
 	rCrossCutJogVelocity: REAL;
 	bCarriageJogFast: BOOL;
 	bTeachReadyLeft: BOOL;
@@ -217,8 +217,16 @@ VAR_GLOBAL
 	AnalogIn_LREAL_Carriage: FB_AnalogIn_LREAL;
 	bCrossCutLeftLimit: BOOL;
 	bCrossCutRightLimit: BOOL;
-	
-	
+	bAutoUp: BOOL;
+	bAutoDown: BOOL;
+	bAutoCut: BOOL;
+	bAutoReturn: BOOL;
+	RS_DownLimit: RS;
+	dCrossCutEncoderValue: DINT;
+	SR_CWlimit: SR;
+	RS_TurretCentre: RS;
+	SR_CCWlimit: SR;
+	AnalogIn_DINT_CrossCut: FB_AnalogIn_DINT;
 	
 //########## HMI Controls ##########//
 	bHorn: BOOL;
@@ -226,7 +234,8 @@ VAR_GLOBAL
 	bCarriageEN: BOOL;
 	bTurretEN: BOOL;
 	bCrossCutEN: BOOL;
-	bCrossCutHMIsensor AT%Q* :BOOL;
+	bCrossCutHMIsensor: BOOL;
+	bLiftingPosition: BOOL;
 
 END_VAR]]></Declaration>
   </GVL>

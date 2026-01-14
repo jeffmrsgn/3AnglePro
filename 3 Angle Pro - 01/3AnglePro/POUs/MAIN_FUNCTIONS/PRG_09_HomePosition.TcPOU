@@ -3,13 +3,120 @@
   <POU Name="PRG_09_HomePosition" Id="{69d55c69-25db-4051-96ce-df52250d7317}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_09_HomePosition
 VAR
+	iStepHome: INT;
+	R_TRIG_MachineHoming: R_TRIG;
+	SR_MachineHoming: SR;
+	TON_HomingStep30: TON;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// bAnyServoError]]></ST>
+      <ST><![CDATA[// bAnyServoError
+
+	IF		NOT bSafetyOK OR IN_FaultReset OR bAutoCrossCut  OR NOT SR_MachineHoming.Q1
+	THEN	iStepHome	:=	0;
+			bMachineHoming := FALSE;
+	END_IF
+	
+			R_TRIG_MachineHoming(	CLK:= bLiftingPosition AND NOT bAutoCrossCut AND NOT OUT_bSawOn,
+									Q=> );	
+			SR_MachineHoming(	SET1:= R_TRIG_MachineHoming.Q AND NOT SR_MachineHoming.Q1,
+								RESET:= (R_TRIG_MachineHoming.Q AND SR_MachineHoming.Q1) OR NOT bSafetyOK OR IN_FaultReset, 
+								Q1=> );
+	
+(*IF bMachineHoming THEN
+	OUT_bLiftingPositionLED := TRUE ;
+ELSE
+	OUT_bLiftingPositionLED := FALSE ;
+END_IF*)
+
+CASE iStepHome OF
+	0:	// Init step
+		bTurretHome		:= FALSE; 
+	    bCarriageHomeLH	:= FALSE;
+	    bCarriageHomeRH	:= FALSE;
+	    bCrossCutHomeLH	:= FALSE;
+	    bCrossCutHomeRH	:= FALSE;
+		bZAxisHome := FALSE;
+		TON_HomingStep30.IN := FALSE;
+	
+		IF R_TRIG_MachineHoming.Q AND bSafetyOK AND NOT OUT_bSawOn THEN
+			bMachineHoming := TRUE ;
+			iStepHome := 10 ;
+		ELSE
+			bMachineHoming := FALSE ;
+		END_IF
+		
+	10:	// Raise Z-axis all the way up
+	
+		IF bSawUpLimit AND bSafetyOK AND bMachineHoming THEN
+			bZAxisHome := TRUE ;
+		ELSE
+			bZAxisHome := FALSE ; 
+			iStepHome := 20 ;
+		END_IF
+		
+	20:	// Move crosscut motor to centre
+	 
+		IF dCrossCutEncoderValue < (dRailLimitLeft + dRailLimitRight)/2 AND bSafetyOK AND bMachineHoming THEN
+			bCrossCutHomeLH := TRUE ;
+			bCrossCutHomeRH := FALSE ;
+		ELSIF dCrossCutEncoderValue > (dRailLimitLeft + dRailLimitRight)/2 AND bSafetyOK AND bMachineHoming THEN
+			bCrossCutHomeRH := TRUE ;
+			bCrossCutHomeLH := FALSE ;
+		ELSIF (dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) - 50000) OR (dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) + 50000) AND bSafetyOK AND bMachineHoming THEN
+			bCrossCutHomeLH := FALSE ;
+			bCrossCutHomeRH := FALSE ;
+			iStepHome := 30 ;
+		END_IF
+	
+	30:	// Rotate turret to max -90°
+	
+			TON_HomingStep30(IN:= , PT:= T#1S, Q=> , ET=> );
+		IF NOT SR_CCWlimit.Q1 AND bSafetyOK AND bMachineHoming THEN
+			bTurretHome := TRUE ;
+		ELSIF SR_CCWlimit.Q1 AND bSafetyOK AND bMachineHoming THEN
+			TON_HomingStep30.IN := TRUE ;
+			bTurretHome := FALSE ;
+			IF TON_HomingStep30.Q THEN
+			    iStepHome := 40 ;
+			END_IF
+			
+		END_IF
+	
+	40: // Offset carriage a little to the right		// 32.3 < CarriageHome < 32.5
+	
+		IF (AnalogIn_LREAL_Carriage.Out.rScaled < 32.3) AND bMachineHoming AND bSafetyOK THEN
+			bCarriageHomeRH := TRUE ;
+			bCarriageHomeLH := FALSE ;
+		ELSIF (AnalogIn_LREAL_Carriage.Out.rScaled > 32.5) AND bMachineHoming AND bSafetyOK THEN
+			bCarriageHomeLH := TRUE ;
+			bCarriageHomeRH := FALSE ;
+		ELSIF (AnalogIn_LREAL_Carriage.Out.rScaled > 32.3) AND (AnalogIn_LREAL_Carriage.Out.rScaled < 32.5) THEN
+			bCarriageHomeRH := FALSE ;
+			bCarriageHomeLH := FALSE ;
+			iStepHome := 50 ;
+		END_IF
+	
+	50: //Crosscut offset towards the control panel (CUT direction)		// 55.5 < CrosscutHome < 55.75
+	
+		IF (AnalogIn_DINT_CrossCut.Out.rScaled < 55.5) AND bMachineHoming AND bSafetyOK THEN
+			bCrossCutHomeLH := TRUE ;
+			bCrossCutHomeRH := FALSE ;
+		ELSIF (AnalogIn_DINT_CrossCut.Out.rScaled > 55.75) AND bMachineHoming AND bSafetyOK THEN
+			bCrossCutHomeRH := TRUE ;
+			bCrossCutHomeLH := FALSE ;
+		ELSIF (AnalogIn_DINT_CrossCut.Out.rScaled > 55.5) AND (AnalogIn_DINT_CrossCut.Out.rScaled < 55.75) THEN
+			bCrossCutHomeLH := FALSE ;
+			bCrossCutHomeRH := FALSE ;
+			iStepHome := 0 ;
+		END_IF
+		
+END_CASE]]></ST>
     </Implementation>
     <LineIds Name="PRG_09_HomePosition">
       <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="99" />
+      <LineId Id="9" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
