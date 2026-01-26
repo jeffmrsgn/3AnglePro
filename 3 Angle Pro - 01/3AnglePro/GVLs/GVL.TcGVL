@@ -9,66 +9,56 @@ VAR_GLOBAL
 	
 	
 // ########## Stober setup ##########//
-	SharedSettings: TAxSettingsModule := (  //the 4 setting itself are general constants that are set at the begining. 
-		MaxPos := 100000,
-		MinPos := 0,
-		Velocity := 150,
-		Accel := 100, 
-		Deccel := 100	); //the specific setting for this axis are shared bewteen multiple FB // make sure the delay is enought to avoid the STO lock
-	// use the definition of the TAXSettingsModule to see what is avaialbe. there are options for slave, coupled, Etc.....
 
+	// Axis Carriage
 	Carriage_Axis :TAXmodule;
 	PDO_CARRIAGEax_IN AT %I* :stPDO_SI6_IN;
 	PDO_CARRIAGEax_OUT AT %Q* :stPDO_SI6_OUT;
-	
 	CarriageSettings: TAxSettingsModule := (  
 		MaxPos		:= 100000,
 		MinPos		:= 0,
 		Velocity	:= 150,
 		Accel		:= 100, 
-		Deccel		:= 100	);
-		
+		Deccel		:= 100	);	
 	fbCarriage_manager: FB_AchsManager;
 	
+	// Axis Turret
 	Turret_Axis :TAXmodule;
 	PDO_TURRETax_IN AT %I* :stPDO_SI6_IN;
 	PDO_TURRETax_OUT AT %Q* :stPDO_SI6_OUT;
-	
 	TurretSettings: TAxSettingsModule := (  
 		MaxPos		:= 100000,
 		MinPos		:= 0,
 		Velocity	:= 150,
 		Accel		:= 100, 
-		Deccel		:= 100	);
-		
+		Deccel		:= 100	);	
 	fbTurret_manager: FB_AchsManager;
 	
+	// Axis CrossCut
 	CrossCut_Axis :TAXmodule;
 	PDO_CROSSCUTax_IN AT %I* :stPDO_SI6_IN;
 	PDO_CROSSCUTax_OUT AT %Q* :stPDO_SI6_OUT;
-	
 	CrossCutSettings: TAxSettingsModule := (  
 		MaxPos		:= 100000,
 		MinPos		:= 0,
 		Velocity	:= 150,
 		Accel		:= 100, 
-		Deccel		:= 100	);
-		
+		Deccel		:= 100	);	
 	fbCrossCut_manager: FB_AchsManager;
 	
+	// Axis X-Drive
 	XDrive_Axis :TAXmodule;
 	PDO_XDRIVEax_IN AT %I* :stPDO_SI6_IN;
 	PDO_XDRIVEax_OUT AT %Q* :stPDO_SI6_OUT;
-	
 	XDriveSettings: TAxSettingsModule := (  
 		MaxPos		:= 100000,
 		MinPos		:= 0,
 		Velocity	:= 150,
 		Accel		:= 100, 
-		Deccel		:= 100	);
-		
+		Deccel		:= 100	);	
 	fbXDrive_manager: FB_AchsManager;
 	
+	// Axes Z1 master and Z2 slave
 	Z1_Axis :TAXmodule;
 	PDO_Z1ax_IN AT %I* :stPDO_SI6_IN;
 	PDO_Z1ax_OUT AT %Q* :stPDO_SI6_OUT;
@@ -87,8 +77,11 @@ VAR_GLOBAL
 		Accel		:= 100, 
 		Deccel		:= 100,	
 	
-		IsCoupled	:= FALSE			///The axis is coupled with other axes.
-	);
+		IsCoupled	:= FALSE,			///The axis is coupled with other axes.
+		IsSlave		:= TRUE,			///Axis is slave in a Master/Slave application
+		Slave_MaxDiff := 20,			///Maximum deviation between Master and Slave for Positioning; default 20
+		Slave_MaxDiff_Enbl := 100		///Maximum deviation between Master and Slave for ENBL	; default 100								
+									);
 		
 	Z2Settings: TAxSettingsModule := (  
 		MaxPos		:= 100000,
@@ -98,12 +91,10 @@ VAR_GLOBAL
 		Deccel		:= 100,	
 		
 		IsCoupled	:= FALSE,			///The axis is coupled with other axes.
-		IsSlave		:= TRUE,			///Axis is slave in a Master/Slave application
+		IsSlave		:= FALSE,			///Axis is slave in a Master/Slave application
 		Slave_MaxDiff := 20,			///Maximum deviation between Master and Slave for Positioning; default 20
 		Slave_MaxDiff_Enbl := 100		///Maximum deviation between Master and Slave for ENBL	; default 100
 									);
-// ########## Stober setup ##########//
-
 	
 	
 	XDrivePot	:INT;
@@ -211,7 +202,8 @@ VAR_GLOBAL
 	bTeachReadyRight: BOOL;
 	bTeach: BOOL;
 	bCarriageCentreRef: BOOL;
-	AnalogIn_DINT_Turret: FB_AnalogIn_DINT;
+	//AnalogIn_DINT_Turret: FB_AnalogIn_DINT;
+	AnalogIn_LREAL_Turret: FB_AnalogIn_LREAL;
 	rZAxisSpeed: REAL;
 	rCarriageMedian: LREAL;
 	AnalogIn_LREAL_Carriage: FB_AnalogIn_LREAL;

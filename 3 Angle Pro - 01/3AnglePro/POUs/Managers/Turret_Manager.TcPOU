@@ -16,7 +16,7 @@ VAR
 	VeloManJog: REAL := 1; //speed of the regular jog movement
 	VeloManJogFAST: REAL := 10; // speed of the fast movement
 	AccManJOG: REAL := 50; //general ACC
-	DccManJog: REAL := 300; // general DCC
+	DccManJog: REAL := 50; // general DCC
 	MaxTorque: WORD := 150; //150% of max torque
 	
 	
@@ -61,6 +61,8 @@ VAR
 	SwitchAuto: BOOL;
 	AutoRUN: BOOL;
 	SafeTEST: BOOL;
+	Achs_Return_Turret: TAxReturn;
+	Turret_Offset: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -113,7 +115,7 @@ END_VAR
                       <l2 n="InputItems" cet="BoxTreeOperand">
                         <o>
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"Offset"</v>
+                            <v n="Operand">"Turret_Offset"</v>
                             <v n="Type">"LREAL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -470,8 +472,8 @@ END_VAR
                             <v n="Id">104L</v>
                           </o>
                           <o>
-                            <v n="Operand">""</v>
-                            <n n="Type" />
+                            <v n="Operand">"Achs_Return_Turret"</v>
+                            <v n="Type">"TAxReturn"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>

@@ -465,7 +465,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EC4FCDEB-9459-4E90-8A05-406BDFCA72DC}" Name="3AnglePro" PrjFilePath="3AnglePro\3AnglePro.plcproj" TmcFilePath="3AnglePro\3AnglePro.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{67D86118-6A62-57E4-AE5F-D3E21D4B5805}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{BCBA0077-7B3E-4C08-B022-130AF0F21902}">
 					<Name>3AnglePro Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -473,10 +473,6 @@
 						<Var>
 							<Name>.PDO_CARRIAGEax_IN</Name>
 							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
-						</Var>
-						<Var>
-							<Name>.refsens</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>.PDO_TURRETax_IN</Name>
@@ -543,6 +539,10 @@
 						<Var>
 							<Name>IO.IN_iXDrivePotStatus</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>.refsens</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IO.ID1</Name>

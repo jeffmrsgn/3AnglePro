@@ -1351,7 +1351,7 @@ END_IF
 // Z-Axis Speed
 IF bZAxisApproachingDownLimit AND bZAxisDownEN THEN
 	rZAxisSpeed := 5 ;
-ELSE rZAxisSpeed := 5 ;
+ELSE rZAxisSpeed := 25;
 END_IF
 
 // Z-Axis Down limit redundancy in case inductive sensor fails

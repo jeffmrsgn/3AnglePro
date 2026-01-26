@@ -57,13 +57,13 @@ CASE iStepHome OF
 		
 	20:	// Move crosscut motor to centre
 	 
-		IF dCrossCutEncoderValue < (dRailLimitLeft + dRailLimitRight)/2 AND bSafetyOK AND bMachineHoming THEN
+		IF dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) - 20000000 AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeLH := TRUE ;
 			bCrossCutHomeRH := FALSE ;
-		ELSIF dCrossCutEncoderValue > (dRailLimitLeft + dRailLimitRight)/2 AND bSafetyOK AND bMachineHoming THEN
+		ELSIF dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) + 20000000 AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeRH := TRUE ;
 			bCrossCutHomeLH := FALSE ;
-		ELSIF (dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) - 1000000) OR (dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) + 1000000) AND bSafetyOK AND bMachineHoming THEN
+		ELSIF (dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) - 20000000) OR (dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) + 20000000) AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeLH := FALSE ;
 			bCrossCutHomeRH := FALSE ;
 			iStepHome := 30 ;

@@ -455,7 +455,7 @@
 				</Target>
 			</Licenses>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" DisableFpExceptions="true" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 				<Task Id="6" Priority="1" CycleTime="10000" AmsPort="352" AdtTasks="true">
@@ -465,7 +465,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EC4FCDEB-9459-4E90-8A05-406BDFCA72DC}" Name="3AnglePro" PrjFilePath="3AnglePro\3AnglePro.plcproj" TmcFilePath="3AnglePro\3AnglePro.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{D56448DE-B87B-7459-F05C-3718DABD3AB1}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{BCBA0077-7B3E-4C08-B022-130AF0F21902}">
 					<Name>3AnglePro Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -473,10 +473,6 @@
 						<Var>
 							<Name>.PDO_CARRIAGEax_IN</Name>
 							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
-						</Var>
-						<Var>
-							<Name>.refsens</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>.PDO_TURRETax_IN</Name>
@@ -514,11 +510,11 @@
 							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
 						</Var>
 						<Var>
-							<Name>.PDO_Z1ax_OUT</Name>
+							<Name>.PDO_XDRIVEax_OUT</Name>
 							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
 						</Var>
 						<Var>
-							<Name>.PDO_XDRIVEax_OUT</Name>
+							<Name>.PDO_Z1ax_OUT</Name>
 							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
 						</Var>
 						<Var>
@@ -543,6 +539,10 @@
 						<Var>
 							<Name>IO.IN_iXDrivePotStatus</Name>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>.refsens</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IO.ID1</Name>

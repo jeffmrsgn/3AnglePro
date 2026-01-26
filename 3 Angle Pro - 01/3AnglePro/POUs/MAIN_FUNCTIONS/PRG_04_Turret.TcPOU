@@ -3,9 +3,11 @@
   <POU Name="PRG_04_Turret" Id="{68211daf-2798-43fd-94be-d04d278eca53}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_04_Turret
 VAR
-//	AnalogIn_LREAL_Turret: FB_AnalogIn_LREAL;
-//	lTurretCWLimit :LREAL;
-//	lTurretCCWLimit :LREAL;
+
+	lTurretCWLimit :LREAL;
+	lTurretCCWLimit :LREAL;
+	lTurretMedian: LREAL;
+	lTurretEncoderValue: LREAL;
 	R_TRIG_0: R_TRIG;
 	R_TRIG_1: R_TRIG;
 	R_TRIG_2: R_TRIG;
@@ -27,12 +29,11 @@ VAR
 	R_TRIG_13: R_TRIG;
 	R_TRIG_14: R_TRIG;
 	R_TRIG_15: R_TRIG;
-	lTurretMedian: LREAL;
 	bTurretRt: BOOL;
 	bTurretLt: BOOL;
 
 	dTurretEncoderValue: DINT;
-	lTurretEncoderValue: REAL;
+
 	DINTmaxvalue: DINT;
 	DINThalfvalue: DINT;
 	dTurretCCWLimit: DINT;
@@ -56,7 +57,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">true</v>
+                  <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"FB_AnalogIn_LREAL"</v>
@@ -90,7 +91,7 @@ END_VAR
                       <l2 n="InputItems" cet="BoxTreeOperand">
                         <o>
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"GVL.Turret_Axis.AchsIn.IstPos"</v>
+                            <v n="Operand">"lTurretEncoderValue"</v>
                             <v n="Type">"LREAL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -228,7 +229,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeBox">
                     <o>
                       <v n="BoxType">"FB_AnalogIn_DINT"</v>
@@ -1345,8 +1346,8 @@ END_VAR
                               <l2 n="InputItems" cet="BoxTreeOperand">
                                 <o>
                                   <o n="Operand" t="Operand">
-                                    <v n="Operand">"dTurretEncoderValue"</v>
-                                    <v n="Type">"DINT"</v>
+                                    <v n="Operand">"GVL.Turret_Axis.AchsIn.IstPos"</v>
+                                    <v n="Type">"LREAL"</v>
                                     <v n="Comment">""</v>
                                     <v n="SymbolComment">""</v>
                                     <v n="Address">""</v>
@@ -1364,8 +1365,8 @@ END_VAR
                                 </o>
                                 <o>
                                   <o n="Operand" t="Operand">
-                                    <v n="Operand">"dTurretCWLimit"</v>
-                                    <v n="Type">"DINT"</v>
+                                    <v n="Operand">"lTurretCWLimit"</v>
+                                    <v n="Type">"LREAL"</v>
                                     <v n="Comment">""</v>
                                     <v n="SymbolComment">""</v>
                                     <v n="Address">""</v>
@@ -2340,8 +2341,8 @@ END_VAR
                               <l2 n="InputItems" cet="BoxTreeOperand">
                                 <o>
                                   <o n="Operand" t="Operand">
-                                    <v n="Operand">"dTurretEncoderValue"</v>
-                                    <v n="Type">"DINT"</v>
+                                    <v n="Operand">"GVL.Turret_Axis.AchsIn.IstPos"</v>
+                                    <v n="Type">"LREAL"</v>
                                     <v n="Comment">""</v>
                                     <v n="SymbolComment">""</v>
                                     <v n="Address">""</v>
@@ -2359,8 +2360,8 @@ END_VAR
                                 </o>
                                 <o>
                                   <o n="Operand" t="Operand">
-                                    <v n="Operand">"dTurretCCWLimit"</v>
-                                    <v n="Type">"DINT"</v>
+                                    <v n="Operand">"lTurretCCWLimit"</v>
+                                    <v n="Type">"LREAL"</v>
                                     <v n="Comment">""</v>
                                     <v n="SymbolComment">""</v>
                                     <v n="Address">""</v>
@@ -3410,26 +3411,40 @@ END_VAR
         <ST><![CDATA[(*lTurretCWLimit := 2500;// 1931.5018729975761 ;
 lTurretCCWLimit := 1294.9306002468361 ;
 lTurretMedian := (lTurretCWLimit + lTurretCCWLimit)/2 ;*)
-dTurretMedian := -1063899312 ;
-dTurretCCWLimit := -2121371574 ;
+lTurretMedian := 1295.531998;
+lTurretCWLimit := lTurretMedian + 319.7995; //1617.0165;
+lTurretCCWLimit := lTurretMedian - 319.7995; //977.4175;
+
+
+//dTurretMedian := -1063899312 ;
+dTurretMedian := (dTurretCWLimit + dTurretCCWLimit)/2 ;
+dTurretCCWLimit := -2115856830 ;
 dTurretCWLimit := -10000 ;
 
 GVL.Turret_Axis.AchsIn.IstPos;
 
 (* Turret encoder rollover *)
-IF dTurretEncoderValue < dTurretCCWLimit THEN
+IF lTurretEncoderValue < lTurretCCWLimit THEN
+	lTurretEncoderValue := lTurretCCWLimit ;
+ELSIF lTurretEncoderValue > lTurretCWLimit THEN
+	lTurretEncoderValue := lTurretCWLimit ;
+ELSE 
+	lTurretEncoderValue := GVL.Turret_Axis.AchsIn.IstPos ;
+END_IF
+
+(*IF dTurretEncoderValue < dTurretCCWLimit THEN
 	dTurretEncoderValue := dTurretCCWLimit ;
 ELSIF dTurretEncoderValue > dTurretCWLimit THEN
 	dTurretEncoderValue := dTurretCWLimit ;
 ELSE 
 	dTurretEncoderValue := GVL.PDO_TurretAX_IN.A545_AktPosition + 406260000 ;
-END_IF
+END_IF *)
 
-(* Turret slow downs approaching 90°, -90° end limits and 0° *)			// CHANGE SCALED VALUES TO TRUE LREAL VALUES //
-IF  (AnalogIn_DINT_Turret.Out.rScaled >= 88 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote))) OR
-	(AnalogIn_DINT_Turret.Out.rScaled <= -88 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote))) OR
-	(AnalogIn_DINT_Turret.Out.rScaled >= -2 AND AnalogIn_DINT_Turret.Out.rScaled < 0 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote))) OR
-	(AnalogIn_DINT_Turret.Out.rScaled <= 2 AND AnalogIn_DINT_Turret.Out.rScaled > 0 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote)))
+(* Turret slow downs approaching 90°, -90° end limits and 0° *)	
+IF  (AnalogIn_LREAL_Turret.Out.rScaled >= 88 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote) OR (bTurretHome AND bMachineHoming))) OR
+	(AnalogIn_LREAL_Turret.Out.rScaled <= -88 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote) OR (bTurretHome AND bMachineHoming))) OR
+	(AnalogIn_LREAL_Turret.Out.rScaled >= -2 AND AnalogIn_LREAL_Turret.Out.rScaled < 0 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote))) OR
+	(AnalogIn_LREAL_Turret.Out.rScaled <= 2 AND AnalogIn_LREAL_Turret.Out.rScaled > 0 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote)))
 THEN
 	bTurretJogFast := FALSE ;
 ELSE
@@ -3437,13 +3452,16 @@ ELSE
 END_IF
 
 (* Trigger stop turret at ~0° *)
-IF dTurretEncoderValue < dTurretMedian + 10000 AND dTurretEncoderValue > dTurretMedian - 10000 THEN
+//IF dTurretEncoderValue < dTurretMedian + 100000 AND dTurretEncoderValue > dTurretMedian - 100000 THEN
+IF GVL.Turret_Axis.AchsIn.IstPos > lTurretMedian - 0.01 AND
+	GVL.Turret_Axis.AchsIn.IstPos < lTurretMedian + 0.01
+THEN
 	bTurretMedianRange := TRUE ;
 ELSE bTurretMedianRange := FALSE ;
 END_IF
 
 (* Turret 45° range *)
-IF AnalogIn_DINT_Turret.Out.rScaled < 47 AND AnalogIn_DINT_Turret.Out.rScaled > -47 THEN
+IF AnalogIn_LREAL_Turret.Out.rScaled < 47 AND AnalogIn_LREAL_Turret.Out.rScaled > -47 THEN
 	bTurret045Range := TRUE ;
 ELSE bTurret045Range := FALSE ;
 END_IF]]></ST>
@@ -3452,12 +3470,19 @@ END_IF]]></ST>
     <LineIds Name="PRG_04_Turret.ACT_04_1_Turret">
       <LineId Id="1" Count="1" />
       <LineId Id="19" Count="0" />
+      <LineId Id="68" Count="0" />
+      <LineId Id="71" Count="2" />
+      <LineId Id="67" Count="0" />
       <LineId Id="51" Count="0" />
+      <LineId Id="63" Count="0" />
       <LineId Id="22" Count="0" />
       <LineId Id="42" Count="0" />
       <LineId Id="54" Count="1" />
       <LineId Id="50" Count="0" />
       <LineId Id="23" Count="0" />
+      <LineId Id="76" Count="5" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="74" Count="0" />
       <LineId Id="43" Count="0" />
       <LineId Id="46" Count="3" />
       <LineId Id="44" Count="1" />
@@ -3474,6 +3499,8 @@ END_IF]]></ST>
       <LineId Id="15" Count="0" />
       <LineId Id="14" Count="0" />
       <LineId Id="16" Count="0" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="65" Count="1" />
       <LineId Id="20" Count="1" />
       <LineId Id="18" Count="0" />
       <LineId Id="61" Count="0" />

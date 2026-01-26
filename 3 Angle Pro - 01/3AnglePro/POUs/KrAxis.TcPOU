@@ -53,11 +53,11 @@ VAR
 	KR_Axis_V2_Turret: KR_Achse_v2; //set up control box, BUT NOT REAL CONTROL
 	Adapter_Turret: FB_AdapterSI6; // adapter needed to make sure the information is passed correctly
 
-	TRT_FollowErrorVelCorrection: LREAL := 0.1; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
+	TRT_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	TRT_StoppingWindow: LREAL := 0.1; // the window the drive has to stop close to the target and designate its self in the right spot
 	TRT_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	TRT_FollowErrorVelLimit: LREAL := 0.1;// the top speed KV2 can move up. larger mass makes it bigger
-	TRT_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	TRT_FollowErrorVelLimit: LREAL := 300;// the top speed KV2 can move up. larger mass makes it bigger
+	TRT_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
 	TRT_MiddleEncoderValue: LREAL := 1296.282433; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	TRT_NominalRotations: REAL := 3000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 
@@ -92,9 +92,9 @@ VAR
 	Z1_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	Z1_StoppingWindow: LREAL := 1; // the window the drive has to stop close to the target and designate its self in the right spot
 	Z1_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	Z1_FollowErrorVelLimit: LREAL := 1;// the top speed KV2 can move up. larger mass makes it bigger
-	Z1_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
-	Z1_MiddleEncoderValue: LREAL := 2167.46668; // the middle of between the max and min vlaue. this will watch for an roll overs 
+	Z1_FollowErrorVelLimit: LREAL := 300;// the top speed KV2 can move up. larger mass makes it bigger
+	Z1_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	Z1_MiddleEncoderValue: LREAL := 0; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	Z1_NominalRotations: REAL := 3000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 
 //Z2
@@ -104,9 +104,9 @@ VAR
 	Z2_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	Z2_StoppingWindow: LREAL := 1; // the window the drive has to stop close to the target and designate its self in the right spot
 	Z2_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	Z2_FollowErrorVelLimit: LREAL := 1;// the top speed KV2 can move up. larger mass makes it bigger
-	Z2_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
-	Z2_MiddleEncoderValue: LREAL := 2167.46668; // the middle of between the max and min vlaue. this will watch for an roll overs 
+	Z2_FollowErrorVelLimit: LREAL := 300;// the top speed KV2 can move up. larger mass makes it bigger
+	Z2_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	Z2_MiddleEncoderValue: LREAL := 0; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	Z2_NominalRotations: REAL := 3000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 
 	ZaxisRefTrigger: BOOL;
@@ -944,8 +944,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"Refsens"</v>
-                                <v n="Type">"BOOL"</v>
+                                <v n="Operand">""</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -2984,8 +2984,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"ZaxisRefTrigger"</v>
-                                <v n="Type">"BOOL"</v>
+                                <v n="Operand">""</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -3193,7 +3193,7 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"SetTheoreticPos"</v>
+                                <v n="Operand">"TRUE"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -3212,7 +3212,7 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"TheoreticPos"</v>
+                                <v n="Operand">"gvl.Z2_Axis.AchsIn.P_T"</v>
                                 <v n="Type">"LREAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -3231,8 +3231,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"TheoreticVelo"</v>
-                                <v n="Type">"LREAL"</v>
+                                <v n="Operand">"gvl.Z2_Axis.AchsIn.VEL_IST"</v>
+                                <v n="Type">"REAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -3664,8 +3664,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"ZaxisRefTrigger"</v>
-                                <v n="Type">"BOOL"</v>
+                                <v n="Operand">""</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -3873,7 +3873,7 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"TRUE"</v>
+                                <v n="Operand">"FALSE"</v>
                                 <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -3892,8 +3892,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"gvl.Z1_Axis.AchsIn.P_T"</v>
-                                <v n="Type">"LREAL"</v>
+                                <v n="Operand">""</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
@@ -3911,8 +3911,8 @@ END_VAR
                             </o>
                             <o>
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"gvl.Z1_Axis.AchsIn.VEL_IST"</v>
-                                <v n="Type">"REAL"</v>
+                                <v n="Operand">""</v>
+                                <n n="Type" />
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>
