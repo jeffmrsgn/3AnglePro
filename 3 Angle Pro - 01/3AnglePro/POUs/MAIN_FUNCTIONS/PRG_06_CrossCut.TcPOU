@@ -3,23 +3,9 @@
   <POU Name="PRG_06_CrossCut" Id="{1ada790c-430f-40ff-84a5-63abddfc2ca8}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_06_CrossCut
 VAR
-
-	lCrossCutMin: LREAL;
-	lCrossCutMax: LREAL;
-	dCrossCutLeftLimit: DINT;
-	dCrossCutRightLimit: DINT;
-	
-//	dRailLimitLeft: DINT;
-//	dRailLimitRight: DINT;
-
 	rCosineAngle: REAL;
-	dTeachLimit: DINT;
-	rRailHypotenuse: LREAL;
-	iRailHypotenuse: DINT;
-	dEncoderAddToZero: DINT;
 	rTurretOffsetMultiplier: LREAL;
 	rCrossCutOffset: REAL;
-//	rTurretVariable: LREAL;
 	rCutSpeed: REAL;
 	rReturnSpeed: REAL;
 	rDriveMaxSpeed: REAL;
@@ -34,10 +20,6 @@ VAR
 	lCrossCutRightLimit: LREAL;
 	lCrossCutLeftLimit: LREAL;
 	lCrossCutCenter: LREAL;
-	lRailLimitLeft: LREAL;
-	lRailLimitRight: LREAL;
-	lCrossCutEncoderValue: LREAL;
-
 	lCrossCutMedian: LREAL;
 	lRailHypotenuse: LREAL;
 	lTeachLimit: LREAL;
@@ -222,178 +204,6 @@ END_VAR
                   </l2>
                   <l2 n="Connectors" />
                   <v n="Id">5L</v>
-                </o>
-                <o>
-                  <v n="ILActive">false</v>
-                  <v n="FBDValid">false</v>
-                  <v n="ILValid">false</v>
-                  <l2 n="ILLines" />
-                  <v n="Comment">""</v>
-                  <v n="Title">""</v>
-                  <v n="Label">""</v>
-                  <v n="OutCommented">true</v>
-                  <l2 n="NetworkItems" cet="BoxTreeBox">
-                    <o>
-                      <v n="BoxType">"FB_AnalogIn_DINT"</v>
-                      <o n="Instance" t="Operand">
-                        <v n="Operand">"AnalogIn_DINT_CrossCut"</v>
-                        <v n="Type">"FB_AnalogIn_DINT"</v>
-                        <v n="Comment">""</v>
-                        <v n="SymbolComment">""</v>
-                        <v n="Address">""</v>
-                        <o n="Flags" t="Flags">
-                          <v n="Flags">0</v>
-                          <v n="Fixed">false</v>
-                          <v n="Extensible">false</v>
-                        </o>
-                        <v n="LValue">false</v>
-                        <v n="Boolean">false</v>
-                        <v n="IsInstance">true</v>
-                        <v n="Id">93L</v>
-                      </o>
-                      <o n="OutputItems" t="OutputItemList">
-                        <l2 n="OutputItems">
-                          <n />
-                        </l2>
-                      </o>
-                      <o n="Flags" t="Flags">
-                        <v n="Flags">0</v>
-                        <v n="Fixed">false</v>
-                        <v n="Extensible">false</v>
-                      </o>
-                      <n n="InputFlags" />
-                      <l2 n="InputItems" cet="BoxTreeOperand">
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dCrossCutEncoderValue"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">96L</v>
-                          </o>
-                          <v n="Id">95L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dCrossCutRightLimit"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">98L</v>
-                          </o>
-                          <v n="Id">97L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dCrossCutLeftLimit"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">100L</v>
-                          </o>
-                          <v n="Id">99L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"0"</v>
-                            <v n="Type">"INT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">102L</v>
-                          </o>
-                          <v n="Id">101L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"58"</v>
-                            <v n="Type">"INT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">104L</v>
-                          </o>
-                          <v n="Id">103L</v>
-                        </o>
-                      </l2>
-                      <o n="InputParam" t="ParamList">
-                        <l2 n="Names" cet="String">
-                          <v>ValueIn</v>
-                          <v>MinIn</v>
-                          <v>MaxIn</v>
-                          <v>MinOut</v>
-                          <v>MaxOut</v>
-                        </l2>
-                        <l2 n="Types" cet="String">
-                          <v>DINT</v>
-                          <v>DINT</v>
-                          <v>DINT</v>
-                          <v>REAL</v>
-                          <v>REAL</v>
-                        </l2>
-                      </o>
-                      <o n="OutputParam" t="ParamList">
-                        <l2 n="Names" cet="String">
-                          <v>Out</v>
-                        </l2>
-                        <l2 n="Types" cet="String">
-                          <v>AnalogSignal_DINT</v>
-                        </l2>
-                      </o>
-                      <v n="CallType" t="Operator">FunctionBlock</v>
-                      <v n="EN">false</v>
-                      <v n="ENO">false</v>
-                      <n n="STSnippet" />
-                      <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">94L</v>
-                    </o>
-                  </l2>
-                  <l2 n="Connectors" />
-                  <v n="Id">92L</v>
                 </o>
                 <o>
                   <v n="ILActive">false</v>
@@ -2522,28 +2332,15 @@ END_VAR
     </Implementation>
     <Action Name="ACT_06_1_CrossCut" Id="{b853cd1c-1170-41a5-a74a-8e2fb720ba0b}">
       <Implementation>
-        <ST><![CDATA[lCrossCutCenter := 4819.64166 ;
-lCrossCutLeftLimit := lCrossCutCenter + 736.22138; //5556.59437;
-lCrossCutRightLimit := lCrossCutCenter - 736.22138; //4083.42028;
+        <ST><![CDATA[lCrossCutCenter := 4819.64166 ;	// move CrossCut subassy to centre
+lCrossCutLeftLimit := lCrossCutCenter + 736.22138;
+lCrossCutRightLimit := lCrossCutCenter - 736.22138;
 lRailLimitLeft := lCrossCutLeftLimit - 139.7234;
-lRailLimitRight := lCrossCutRightLimit + 139.7234; // 3943.69688
+lRailLimitRight := lCrossCutRightLimit + 139.7234;
 
 GVL.CrossCut_Axis.AchsIn.IstPos;
-(*
-dCrossCutLeftLimit := -1251057172 + dEncoderAddToZero;		// move the saw block all the way to the left
-dCrossCutRightLimit := -2056805324 + dEncoderAddToZero;  	// move the saw block all the way to the right
-dRailLimitLeft := -1321435390 + dEncoderAddToZero;			// align centre of the blade with the left inner edge of the bed rails 
-dRailLimitRight := -1986427106 + dEncoderAddToZero;			// align centre of the blade with the right inner edge of the bed rails
-dEncoderAddToZero := 2100000000;							// Take the absolute value of the lowest negative number and round up
-*)
-// Teach Limits left and right		left 4938.23987
-(*IF bTeachReadyLeft AND bTeach AND bCarriageCentreRef AND RS_TurretCentre.Q1 AND (AnalogIn_DINT_CrossCut.Out.rScaled > (AnalogIn_DINT_CrossCut.MaxOut / 2)) (*AND NOT (bTurretReturn AND bAutoCrossCut AND bMachineHoming)*) THEN
-	dTeachLimitLeft := GVL.PDO_CrossCutAX_IN.A545_AktPosition + dEncoderAddToZero;
-ELSIF bTeachReadyRight AND bTeach AND bCarriageCentreRef AND RS_TurretCentre.Q1 AND (AnalogIn_DINT_CrossCut.Out.rScaled < (AnalogIn_DINT_CrossCut.MaxOut / 2)) (*AND NOT (bTurretReturn AND bAutoCrossCut AND bMachineHoming)*) THEN
-	dTeachLimitRight := GVL.PDO_CrossCutAX_IN.A545_AktPosition + dEncoderAddToZero; 
-END_IF*)
 
-//(*
+// Teach Limits left and right		left 4938.23987
 IF bTeachReadyLeft AND bTeach AND bCarriageCentreRef AND RS_TurretCentre.Q1 AND (AnalogIn_LREAL_CrossCut.Out.rScaled > (AnalogIn_LREAL_CrossCut.MaxOut / 2)) AND NOT (bAutoCrossCut AND bMachineHoming) THEN
 	lTeachLimitLeft := GVL.CrossCut_Axis.AchsIn.IstPos;
 ELSIF lTeachLimitLeft = 0 THEN
@@ -2553,27 +2350,8 @@ ELSIF bTeachReadyRight AND bTeach AND bCarriageCentreRef AND RS_TurretCentre.Q1 
 ELSIF lTeachLimitRight = 0 THEN
 	lTeachLimitRight := lRailLimitRight + 114.64 ;
 END_IF
-//*)
 
 // CrossCut Limits
-(*IF (dCrossCutEncoderValue >= (dCrossCutMedian + (iRailHypotenuse - dTeachLimit))) OR
-	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_DINT_CrossCut.Out.rScaled >= (AnalogIn_DINT_CrossCut.MaxOut - 6 (*Inches*)))) OR
-	(dCrossCutEncoderValue > (dCrossCutLeftLimit - 5000))
-	THEN
-	bCrossCutLeftLimit := TRUE ;	// Left Limit
-	bCrossCutRightLimit := FALSE ;
-ELSIF (dCrossCutEncoderValue <= (dCrossCutMedian - (iRailHypotenuse - dTeachLimit))) OR
-	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_DINT_CrossCut.Out.rScaled <= (AnalogIn_DINT_CrossCut.MinOut + 6 (*Inches*)))) OR
-	(dCrossCutEncoderValue < (dCrossCutRightLimit + 5000))
-	THEN
-	bCrossCutLeftLimit := FALSE ;	
-	bCrossCutRightLimit := TRUE ;	// Right Limit
-ELSE
-	bCrossCutLeftLimit := FALSE ;	
-	bCrossCutRightLimit := FALSE ;	
-END_IF*)
-
-//(*
 IF (lCrossCutEncoderValue >= (lCrossCutMedian + (lRailHypotenuse - lTeachLimit))) OR
 	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_LREAL_CrossCut.Out.rScaled >= (AnalogIn_LREAL_CrossCut.MaxOut - 6 (*Inches*)))) OR
 	(lCrossCutEncoderValue > (lCrossCutLeftLimit - 5))
@@ -2590,27 +2368,8 @@ ELSE
 	bCrossCutLeftLimit := FALSE ;	
 	bCrossCutRightLimit := FALSE ;	
 END_IF
-//*)
 
 // Slowdowns approaching the limits 
-(*IF (dCrossCutEncoderValue >= (dCrossCutMedian + (iRailHypotenuse - dTeachLimit))-50000000) OR
-	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_DINT_CrossCut.Out.rScaled >= (AnalogIn_DINT_CrossCut.MaxOut - 6(*Inches*))-1)) OR
-	(dCrossCutEncoderValue > (dCrossCutLeftLimit - 50000000))
-	THEN
-	bApproachingLimitLeft := TRUE ;		// Left approaching limit
-	bApproachingLimitRight := FALSE ;
-ELSIF (dCrossCutEncoderValue <= (dCrossCutMedian - (iRailHypotenuse - dTeachLimit))+50000000) OR
-	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_DINT_CrossCut.Out.rScaled <= (AnalogIn_DINT_CrossCut.MinOut + 6 (*Inches*))+1)) OR
-	(dCrossCutEncoderValue < (dCrossCutRightLimit + 50000000))
-	THEN
-	bApproachingLimitRight := TRUE ;	// Right approaching limit
-	bApproachingLimitLeft := FALSE ;	
-ELSE
-	bApproachingLimitRight := FALSE ;
-	bApproachingLimitLeft 	:= FALSE ;
-END_IF*)
-
-//(*
 IF (lCrossCutEncoderValue >= (lCrossCutMedian + (lRailHypotenuse - lTeachLimit))-50) OR
 	(((AnalogIn_LREAL_Turret.Out.rScaled > 85 (*Degrees*)) OR (AnalogIn_LREAL_Turret.Out.rScaled < -85)) AND (AnalogIn_LREAL_CrossCut.Out.rScaled >= (AnalogIn_LREAL_CrossCut.MaxOut - 6(*Inches*))-1)) OR
 	(lCrossCutEncoderValue > (lCrossCutLeftLimit - 50))
@@ -2627,18 +2386,8 @@ ELSE
 	bApproachingLimitRight := FALSE ;
 	bApproachingLimitLeft 	:= FALSE ;
 END_IF
-//*)
 
 // CrossCut encoder rollover code. See Turret's
-(*IF dCrossCutEncoderValue > dCrossCutLeftLimit THEN
-	dCrossCutEncoderValue := dCrossCutLeftLimit ;
-ELSIF dCrossCutEncoderValue < dCrossCutRightLimit THEN
-	dCrossCutEncoderValue := dCrossCutRightLimit ;
-ELSE
-	dCrossCutEncoderValue := GVL.PDO_CrossCutAX_IN.A545_AktPosition + dEncoderAddToZero ;	
-END_IF*)
-
-//(*
 IF lCrossCutEncoderValue > lCrossCutLeftLimit THEN
 	lCrossCutEncoderValue := lCrossCutLeftLimit ;
 ELSIF lCrossCutEncoderValue < lCrossCutRightLimit THEN
@@ -2646,40 +2395,16 @@ ELSIF lCrossCutEncoderValue < lCrossCutRightLimit THEN
 ELSE
 	lCrossCutEncoderValue := GVL.CrossCut_Axis.AchsIn.IstPos ;	
 END_IF
-//*)
 
 // Hypotenuse calculation
-(*IF ABS(AnalogIn_LREAL_Turret.Out.rScaled) <> 90 THEN
-	rCosineAngle := COS ( (PI / 180) * ABS( AnalogIn_LREAL_Turret.Out.rScaled)) ;
-ELSE
-	rCosineAngle := COS ( (PI / 180) * 89.9999 ) ;
-END_IF*)
-
 IF ABS(AnalogIn_LREAL_Turret.Out.rScaled) < 85 THEN
 	rCosineAngle := COS ( (PI / 180) * ABS( AnalogIn_LREAL_Turret.Out.rScaled)) ;
 ELSE
 	rCosineAngle := COS ( (PI / 180) * 85 ) ;
 END_IF
 
-//dTeachLimit := REAL_TO_DINT(((DINT_TO_REAL(dRailLimitLeft - dRailLimitRight))/2) - ((DINT_TO_REAL(dTeachLimitLeft - dTeachLimitRight))/2)) ;
-//(*
+lRailHypotenuse := ((lRailLimitLeft - lRailLimitRight)/2) / rCosineAngle;
 lTeachLimit := ((lRailLimitLeft - lRailLimitRight)/2) - ((lTeachLimitLeft - lTeachLimitRight)/2) ;
-//*)
-
-//	rRailHypotenuse := ( (DINT_TO_LREAL(dRailLimitLeft - dRailLimitRight)/2) / rCosineAngle);
-//(*
-	lRailHypotenuse := ((lRailLimitLeft - lRailLimitRight)/2) / rCosineAngle;
-//*)
-	
-(*IF rRailHypotenuse >= 1942843775 OR rRailHypotenuse < 0 THEN
-	iRailHypotenuse := 1942843775;		// rRailHypotenuse = 1942843775 	@ 80°
-ELSE
-	iRailHypotenuse := LREAL_TO_DINT(rRailHypotenuse);
-END_IF *)
-
-(*
-	// no need for iRailHypotenuse
-*)
 
 (* Crosscut offset relative to Carriage position *)
 IF bCarriageCentreRef THEN
@@ -2692,50 +2417,32 @@ END_IF
 rTurretOffsetMultiplier := (0.5 * (ABS(AnalogIn_LREAL_Turret.Out.rScaled)/90)) ;
 iCrossCutMedianStep;
 
-(*IF (bCarriageCentreRef AND NOT RS_TurretCentre.Q1 AND AnalogIn_LREAL_Turret.Out.rScaled >0) OR (NOT bCarriageCentreRef AND (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85)) THEN	
-	dCrossCutMedian := REAL_TO_DINT (((DINT_TO_REAL(dTeachLimitLeft + dTeachLimitRight)) / 2 ) -  ((rTurretOffsetMultiplier/(AnalogIn_DINT_CrossCut.MaxOut-AnalogIn_DINT_CrossCut.MinOut))*DINT_TO_REAL(dCrossCutLeftLimit-dCrossCutRightLimit))  ) ;
-	iCrossCutMedianStep := 10;
-ELSIF (bCarriageCentreRef AND NOT RS_TurretCentre.Q1 AND AnalogIn_LREAL_Turret.Out.rScaled <0) OR (NOT bCarriageCentreRef AND (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85)) THEN	
-	dCrossCutMedian := REAL_TO_DINT (((DINT_TO_REAL(dTeachLimitLeft + dTeachLimitRight)) / 2 ) +  ((rTurretOffsetMultiplier/(AnalogIn_DINT_CrossCut.MaxOut-AnalogIn_DINT_CrossCut.MinOut))*DINT_TO_REAL(dCrossCutLeftLimit-dCrossCutRightLimit))  ) ;
-	iCrossCutMedianStep := 20;
-ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled < rCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
-	dCrossCutMedian := REAL_TO_DINT(((DINT_TO_REAL(dTeachLimitLeft + dTeachLimitRight)) / 2 ) - ((rCrossCutOffset/(AnalogIn_DINT_CrossCut.MaxOut-AnalogIn_DINT_CrossCut.MinOut))*DINT_TO_REAL(dCrossCutLeftLimit-dCrossCutRightLimit)) /rCosineAngle) ;
-	iCrossCutMedianStep := 30;
-ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled > rCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
-	dCrossCutMedian := REAL_TO_DINT(((DINT_TO_REAL(dTeachLimitLeft + dTeachLimitRight)) / 2 ) + ((rCrossCutOffset/(AnalogIn_DINT_CrossCut.MaxOut-AnalogIn_DINT_CrossCut.MinOut))*DINT_TO_REAL(dCrossCutLeftLimit-dCrossCutRightLimit)) /rCosineAngle) ;
-	iCrossCutMedianStep := 40;
-END_IF*)
-
-//(*
 IF (bCarriageCentreRef AND NOT RS_TurretCentre.Q1 AND AnalogIn_LREAL_Turret.Out.rScaled >0) OR (NOT bCarriageCentreRef AND (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85)) THEN	
 	lCrossCutMedian := ((lTeachLimitLeft + lTeachLimitRight) / 2 ) -  ((rTurretOffsetMultiplier/(AnalogIn_LREAL_CrossCut.MaxOut-AnalogIn_LREAL_CrossCut.MinOut))*(lCrossCutLeftLimit-lCrossCutRightLimit)) ;
 	iCrossCutMedianStep := 10;
 ELSIF (bCarriageCentreRef AND NOT RS_TurretCentre.Q1 AND AnalogIn_LREAL_Turret.Out.rScaled <0) OR (NOT bCarriageCentreRef AND (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85)) THEN	
 	lCrossCutMedian := ((lTeachLimitLeft + lTeachLimitRight) / 2 ) +  ((rTurretOffsetMultiplier/(AnalogIn_LREAL_CrossCut.MaxOut-AnalogIn_LREAL_CrossCut.MinOut))*(lCrossCutLeftLimit-lCrossCutRightLimit)) ;
 	iCrossCutMedianStep := 20;
-ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled < rCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
+ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled < lCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
 	lCrossCutMedian := ((lTeachLimitLeft + lTeachLimitRight) / 2 ) - ((rCrossCutOffset/(AnalogIn_LREAL_CrossCut.MaxOut-AnalogIn_LREAL_CrossCut.MinOut))*(lCrossCutLeftLimit-lCrossCutRightLimit)) /rCosineAngle ;
 	iCrossCutMedianStep := 30;
-ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled > rCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
+ELSIF NOT bCarriageCentreRef AND (AnalogIn_LREAL_Carriage.Out.rScaled > lCarriageMedian) AND NOT (AnalogIn_LREAL_Turret.Out.rScaled > 85 OR AnalogIn_LREAL_Turret.Out.rScaled < -85) THEN
 	lCrossCutMedian := ((lTeachLimitLeft + lTeachLimitRight) / 2 ) + ((rCrossCutOffset/(AnalogIn_LREAL_CrossCut.MaxOut-AnalogIn_LREAL_CrossCut.MinOut))*(lCrossCutLeftLimit-lCrossCutRightLimit)) /rCosineAngle ;
 	iCrossCutMedianStep := 40;
 END_IF
-//*)
 
-(*IF (dCrossCutEncoderValue >= (dCrossCutMedian - 3000000)) AND (dCrossCutEncoderValue <= (dCrossCutMedian + 3000000)) THEN
-	bCrossCutCentre := TRUE ;
-ELSE
-	bCrossCutCentre := FALSE ;
-END_IF*)
-
-//(*
 IF (lCrossCutEncoderValue >= (lCrossCutMedian - 30)) AND (lCrossCutEncoderValue <= (lCrossCutMedian + 30)) THEN
 	bCrossCutCentre := TRUE ;
 ELSE
 	bCrossCutCentre := FALSE ;
 END_IF
-//*)
-]]></ST>
+
+// HMI
+IF NOT bTurretEN AND NOT bCarriageEN THEN
+	bCrossCutHMIsensor := TRUE ;
+ELSE
+	bCrossCutHMIsensor := FALSE ;
+END_IF]]></ST>
       </Implementation>
     </Action>
     <Action Name="ACT_06_2_CrossCutSpeed" Id="{4034cf41-a875-45a4-9ad9-3cc174c2aa10}">
@@ -2771,84 +2478,31 @@ END_IF]]></ST>
       <LineId Id="1" Count="1" />
       <LineId Id="160" Count="2" />
       <LineId Id="158" Count="0" />
-      <LineId Id="157" Count="0" />
-      <LineId Id="24" Count="1" />
-      <LineId Id="38" Count="0" />
-      <LineId Id="40" Count="0" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="42" Count="3" />
-      <LineId Id="47" Count="1" />
-      <LineId Id="46" Count="0" />
-      <LineId Id="164" Count="0" />
-      <LineId Id="163" Count="0" />
+      <LineId Id="42" Count="1" />
       <LineId Id="167" Count="1" />
       <LineId Id="261" Count="1" />
       <LineId Id="169" Count="1" />
       <LineId Id="263" Count="1" />
       <LineId Id="166" Count="0" />
-      <LineId Id="165" Count="0" />
       <LineId Id="15" Count="0" />
       <LineId Id="4" Count="0" />
-      <LineId Id="68" Count="0" />
-      <LineId Id="89" Count="1" />
-      <LineId Id="87" Count="0" />
-      <LineId Id="5" Count="0" />
-      <LineId Id="7" Count="0" />
-      <LineId Id="100" Count="0" />
-      <LineId Id="102" Count="4" />
-      <LineId Id="146" Count="2" />
-      <LineId Id="6" Count="0" />
-      <LineId Id="214" Count="0" />
-      <LineId Id="213" Count="0" />
       <LineId Id="216" Count="14" />
       <LineId Id="215" Count="0" />
-      <LineId Id="231" Count="0" />
       <LineId Id="18" Count="0" />
       <LineId Id="17" Count="0" />
-      <LineId Id="111" Count="3" />
-      <LineId Id="135" Count="0" />
-      <LineId Id="116" Count="4" />
-      <LineId Id="137" Count="0" />
-      <LineId Id="122" Count="0" />
-      <LineId Id="139" Count="1" />
-      <LineId Id="138" Count="0" />
-      <LineId Id="110" Count="0" />
-      <LineId Id="233" Count="0" />
-      <LineId Id="232" Count="0" />
       <LineId Id="235" Count="14" />
       <LineId Id="234" Count="0" />
-      <LineId Id="250" Count="0" />
       <LineId Id="108" Count="0" />
       <LineId Id="29" Count="0" />
-      <LineId Id="28" Count="0" />
-      <LineId Id="33" Count="3" />
-      <LineId Id="32" Count="0" />
-      <LineId Id="31" Count="0" />
-      <LineId Id="172" Count="0" />
-      <LineId Id="171" Count="0" />
       <LineId Id="175" Count="5" />
       <LineId Id="174" Count="0" />
-      <LineId Id="173" Count="0" />
       <LineId Id="66" Count="0" />
       <LineId Id="27" Count="0" />
-      <LineId Id="51" Count="3" />
-      <LineId Id="50" Count="0" />
-      <LineId Id="256" Count="4" />
+      <LineId Id="257" Count="3" />
       <LineId Id="255" Count="0" />
-      <LineId Id="56" Count="1" />
+      <LineId Id="56" Count="0" />
       <LineId Id="181" Count="0" />
       <LineId Id="184" Count="0" />
-      <LineId Id="182" Count="0" />
-      <LineId Id="58" Count="1" />
-      <LineId Id="185" Count="0" />
-      <LineId Id="187" Count="0" />
-      <LineId Id="186" Count="0" />
-      <LineId Id="60" Count="4" />
-      <LineId Id="55" Count="0" />
-      <LineId Id="204" Count="0" />
-      <LineId Id="70" Count="0" />
-      <LineId Id="206" Count="0" />
-      <LineId Id="205" Count="0" />
       <LineId Id="72" Count="0" />
       <LineId Id="91" Count="0" />
       <LineId Id="93" Count="2" />
@@ -2859,28 +2513,18 @@ END_IF]]></ST>
       <LineId Id="73" Count="0" />
       <LineId Id="97" Count="0" />
       <LineId Id="141" Count="0" />
-      <LineId Id="74" Count="1" />
-      <LineId Id="142" Count="0" />
-      <LineId Id="77" Count="1" />
-      <LineId Id="143" Count="0" />
-      <LineId Id="80" Count="1" />
-      <LineId Id="144" Count="0" />
-      <LineId Id="82" Count="1" />
-      <LineId Id="145" Count="0" />
-      <LineId Id="84" Count="0" />
-      <LineId Id="189" Count="0" />
-      <LineId Id="188" Count="0" />
       <LineId Id="191" Count="11" />
       <LineId Id="190" Count="0" />
-      <LineId Id="203" Count="0" />
-      <LineId Id="150" Count="4" />
-      <LineId Id="149" Count="0" />
-      <LineId Id="156" Count="0" />
       <LineId Id="155" Count="0" />
       <LineId Id="209" Count="3" />
       <LineId Id="208" Count="0" />
       <LineId Id="207" Count="0" />
       <LineId Id="69" Count="0" />
+      <LineId Id="265" Count="0" />
+      <LineId Id="268" Count="0" />
+      <LineId Id="266" Count="0" />
+      <LineId Id="269" Count="0" />
+      <LineId Id="267" Count="0" />
     </LineIds>
     <LineIds Name="PRG_06_CrossCut.ACT_06_2_CrossCutSpeed">
       <LineId Id="18" Count="4" />

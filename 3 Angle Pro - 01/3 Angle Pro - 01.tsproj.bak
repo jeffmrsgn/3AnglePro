@@ -465,7 +465,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{EC4FCDEB-9459-4E90-8A05-406BDFCA72DC}" Name="3AnglePro" PrjFilePath="3AnglePro\3AnglePro.plcproj" TmcFilePath="3AnglePro\3AnglePro.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{13444C9E-CD14-4419-C3B7-501B20F56DA8}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{887CA745-CEF4-10E4-CD57-AB4AFCCDA651}">
 					<Name>3AnglePro Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -498,10 +498,6 @@
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>FasTask Outputs</Name>
 						<Var>
-							<Name>.PDO_CARRIAGEax_OUT</Name>
-							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
-						</Var>
-						<Var>
 							<Name>.PDO_TURRETax_OUT</Name>
 							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
 						</Var>
@@ -511,6 +507,10 @@
 						</Var>
 						<Var>
 							<Name>.PDO_XDRIVEax_OUT</Name>
+							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
+						</Var>
+						<Var>
+							<Name>.PDO_CARRIAGEax_OUT</Name>
 							<Type GUID="{DE67163C-9E75-09C0-26C6-AA3B6E2EE067}">stPDO_SI6_OUT</Type>
 						</Var>
 						<Var>
@@ -539,10 +539,6 @@
 						<Var>
 							<Name>IO.IN_iXDrivePotStatus</Name>
 							<Type>INT</Type>
-						</Var>
-						<Var>
-							<Name>.refsens</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>IO.ID1</Name>
@@ -635,10 +631,6 @@
 						</Var>
 						<Var>
 							<Name>IO.OD1</Name>
-							<Comment><![CDATA[	IN_iCarriagePOSValue		AT%IW136	: INT ;
-	IN_iCarriagePOSStatus		AT%IW137	: INT ;
-	IN_iCarriageTESTValue		AT%IW140	: INT ;
-	IN_iCarriageTESTStatus		AT%IW141 	: INT ;]]></Comment>
 							<Type GUID="{5C79D7CC-37A6-A491-275F-7EE65BB92534}">ST_IOcard</Type>
 						</Var>
 						<Var>

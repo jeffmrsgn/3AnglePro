@@ -44,8 +44,8 @@ VAR
 	CRG_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	CRG_StoppingWindow: LREAL := 1; // the window the drive has to stop close to the target and designate its self in the right spot
 	CRG_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	CRG_FollowErrorVelLimit: LREAL := 1;// the top speed KV2 can move up. larger mass makes it bigger
-	CRG_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	CRG_FollowErrorVelLimit: LREAL := 600;// the top speed KV2 can move up. larger mass makes it bigger
+	CRG_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
 	CRG_MiddleEncoderValue: LREAL := 20744.82692; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	CRG_NominalRotations: REAL := 6000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 
@@ -68,8 +68,8 @@ VAR
 	CRC_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	CRC_StoppingWindow: LREAL := 1; // the window the drive has to stop close to the target and designate its self in the right spot
 	CRC_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	CRC_FollowErrorVelLimit: LREAL := 1;// the top speed KV2 can move up. larger mass makes it bigger
-	CRC_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	CRC_FollowErrorVelLimit: LREAL := 600;// the top speed KV2 can move up. larger mass makes it bigger
+	CRC_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
 	CRC_MiddleEncoderValue: LREAL := 7838.457838; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	CRC_NominalRotations: REAL := 6000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 
@@ -80,8 +80,8 @@ VAR
 	XDR_FollowErrorVelCorrection: LREAL := 15; // german only tool!!!! a follow error correction that acts with the drive. wikipedia "KR FAKTOR". VERY useful!
 	XDR_StoppingWindow: LREAL := 1; // the window the drive has to stop close to the target and designate its self in the right spot
 	XDR_DriveInverted: BOOL; // activate if there is wrong wiring on the drive. NOT for going BACKWARDS!!!!
-	XDR_FollowErrorVelLimit: LREAL := 1;// the top speed KV2 can move up. larger mass makes it bigger
-	XDR_FollowErrorVelGAIN: REAL := 0.1; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
+	XDR_FollowErrorVelLimit: LREAL := 300;// the top speed KV2 can move up. larger mass makes it bigger
+	XDR_FollowErrorVelGAIN: REAL := 0; // the gain the KV velocity will use to try and keep up. 0 is good. large mass makes it bigger
 	XDR_MiddleEncoderValue: LREAL := 41225.1069; // the middle of between the max and min vlaue. this will watch for an roll overs 
 	XDR_NominalRotations: REAL := 3000;  // labeled as "nN" on the motor. make sure its not a '.' vs a ',' (should be in the 1000, depending on motor) 
 

@@ -3,19 +3,8 @@
   <GVL Name="GVL_Persistent" Id="{14440726-a52a-4e9b-b498-089c0f0ea337}">
     <Declaration><![CDATA[VAR_GLOBAL PERSISTENT
 
-//	uTeachLimitLeft: UDINT;
-//	uTeachLimitRight: UDINT;
-//	iCarriageMedian: INT;
-//	iCarriageLeftLimit: INT;
-//	iCarriageRightLimit: INT;
 	iZAxisUpperLimitValue: DINT;
 	iZAxisLowerLimitValue: DINT;
-	uTRTCaptureValueMin: UDINT;
-    uTRTCaptureValueMax: UDINT;
-	uTurretValue: UDINT;
-	
-	dTeachLimitLeft: DINT;
-	dTeachLimitRight: DINT;
 	lTeachLimitRight: LREAL;
 	lTeachLimitLeft: LREAL;
 END_VAR]]></Declaration>

@@ -229,178 +229,6 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">true</v>
-                  <l2 n="NetworkItems" cet="BoxTreeBox">
-                    <o>
-                      <v n="BoxType">"FB_AnalogIn_DINT"</v>
-                      <o n="Instance" t="Operand">
-                        <v n="Operand">"AnalogIn_DINT_Turret"</v>
-                        <v n="Type">"FB_AnalogIn_DINT"</v>
-                        <v n="Comment">""</v>
-                        <v n="SymbolComment">""</v>
-                        <v n="Address">""</v>
-                        <o n="Flags" t="Flags">
-                          <v n="Flags">0</v>
-                          <v n="Fixed">false</v>
-                          <v n="Extensible">false</v>
-                        </o>
-                        <v n="LValue">false</v>
-                        <v n="Boolean">false</v>
-                        <v n="IsInstance">true</v>
-                        <v n="Id">496L</v>
-                      </o>
-                      <o n="OutputItems" t="OutputItemList">
-                        <l2 n="OutputItems">
-                          <n />
-                        </l2>
-                      </o>
-                      <o n="Flags" t="Flags">
-                        <v n="Flags">0</v>
-                        <v n="Fixed">false</v>
-                        <v n="Extensible">false</v>
-                      </o>
-                      <n n="InputFlags" />
-                      <l2 n="InputItems" cet="BoxTreeOperand">
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dTurretEncoderValue"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">499L</v>
-                          </o>
-                          <v n="Id">498L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dTurretCCWLimit"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">501L</v>
-                          </o>
-                          <v n="Id">500L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"dTurretCWLimit"</v>
-                            <v n="Type">"DINT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">503L</v>
-                          </o>
-                          <v n="Id">502L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"-90"</v>
-                            <v n="Type">"INT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">505L</v>
-                          </o>
-                          <v n="Id">504L</v>
-                        </o>
-                        <o>
-                          <o n="Operand" t="Operand">
-                            <v n="Operand">"90"</v>
-                            <v n="Type">"INT"</v>
-                            <v n="Comment">""</v>
-                            <v n="SymbolComment">""</v>
-                            <v n="Address">""</v>
-                            <o n="Flags" t="Flags">
-                              <v n="Flags">0</v>
-                              <v n="Fixed">false</v>
-                              <v n="Extensible">false</v>
-                            </o>
-                            <v n="LValue">false</v>
-                            <v n="Boolean">false</v>
-                            <v n="IsInstance">false</v>
-                            <v n="Id">507L</v>
-                          </o>
-                          <v n="Id">506L</v>
-                        </o>
-                      </l2>
-                      <o n="InputParam" t="ParamList">
-                        <l2 n="Names" cet="String">
-                          <v>ValueIn</v>
-                          <v>MinIn</v>
-                          <v>MaxIn</v>
-                          <v>MinOut</v>
-                          <v>MaxOut</v>
-                        </l2>
-                        <l2 n="Types" cet="String">
-                          <v>DINT</v>
-                          <v>DINT</v>
-                          <v>DINT</v>
-                          <v>REAL</v>
-                          <v>REAL</v>
-                        </l2>
-                      </o>
-                      <o n="OutputParam" t="ParamList">
-                        <l2 n="Names" cet="String">
-                          <v>Out</v>
-                        </l2>
-                        <l2 n="Types" cet="String">
-                          <v>AnalogSignal_DINT</v>
-                        </l2>
-                      </o>
-                      <v n="CallType" t="Operator">FunctionBlock</v>
-                      <v n="EN">false</v>
-                      <v n="ENO">false</v>
-                      <n n="STSnippet" />
-                      <v n="ContainsExtensibleInputs">false</v>
-                      <v n="ProvidesSTSnippet">false</v>
-                      <v n="Id">497L</v>
-                    </o>
-                  </l2>
-                  <l2 n="Connectors" />
-                  <v n="Id">495L</v>
-                </o>
-                <o>
-                  <v n="ILActive">false</v>
-                  <v n="FBDValid">false</v>
-                  <v n="ILValid">false</v>
-                  <l2 n="ILLines" />
-                  <v n="Comment">""</v>
-                  <v n="Title">""</v>
-                  <v n="Label">""</v>
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeAssign">
                     <o>
@@ -3298,20 +3126,9 @@ END_VAR
     </Implementation>
     <Action Name="ACT_04_1_Turret" Id="{c42e3bb7-9e23-4d2c-b2d4-7fae912b0bb1}">
       <Implementation>
-        <ST><![CDATA[(*lTurretCWLimit := 2500;// 1931.5018729975761 ;
-lTurretCCWLimit := 1294.9306002468361 ;
-lTurretMedian := (lTurretCWLimit + lTurretCCWLimit)/2 ;*)
-lTurretMedian := 1295.531998;
-lTurretCWLimit := lTurretMedian + 319.7995; //1617.0165;
-lTurretCCWLimit := lTurretMedian - 319.7995; //977.4175;
-
-
-//dTurretMedian := -1063899312 ;
-dTurretMedian := (dTurretCWLimit + dTurretCCWLimit)/2 ;
-dTurretCCWLimit := -2115856830 ;
-dTurretCWLimit := -10000 ;
-
-GVL.Turret_Axis.AchsIn.IstPos;
+        <ST><![CDATA[lTurretMedian := 1295.531998;	// square the CROSSCUT subassy, not the saw blade!!!
+lTurretCWLimit := lTurretMedian + 319.7995;
+lTurretCCWLimit := lTurretMedian - 319.7995;
 
 (* Turret encoder rollover *)
 IF lTurretEncoderValue < lTurretCCWLimit THEN
@@ -3321,14 +3138,6 @@ ELSIF lTurretEncoderValue > lTurretCWLimit THEN
 ELSE 
 	lTurretEncoderValue := GVL.Turret_Axis.AchsIn.IstPos ;
 END_IF
-
-(*IF dTurretEncoderValue < dTurretCCWLimit THEN
-	dTurretEncoderValue := dTurretCCWLimit ;
-ELSIF dTurretEncoderValue > dTurretCWLimit THEN
-	dTurretEncoderValue := dTurretCWLimit ;
-ELSE 
-	dTurretEncoderValue := GVL.PDO_TurretAX_IN.A545_AktPosition + 406260000 ;
-END_IF *)
 
 (* Turret slow downs approaching 90°, -90° end limits and 0° *)	
 IF  (AnalogIn_LREAL_Turret.Out.rScaled >= 88 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote) OR (bTurretHome AND bMachineHoming))) OR
@@ -3342,7 +3151,6 @@ ELSE
 END_IF
 
 (* Trigger stop turret at ~0° *)
-//IF dTurretEncoderValue < dTurretMedian + 100000 AND dTurretEncoderValue > dTurretMedian - 100000 THEN
 IF GVL.Turret_Axis.AchsIn.IstPos > lTurretMedian - 0.01 AND
 	GVL.Turret_Axis.AchsIn.IstPos < lTurretMedian + 0.01
 THEN
@@ -3358,24 +3166,12 @@ END_IF]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="PRG_04_Turret.ACT_04_1_Turret">
-      <LineId Id="1" Count="1" />
-      <LineId Id="19" Count="0" />
       <LineId Id="68" Count="0" />
-      <LineId Id="71" Count="2" />
-      <LineId Id="67" Count="0" />
-      <LineId Id="51" Count="0" />
-      <LineId Id="63" Count="0" />
-      <LineId Id="22" Count="0" />
-      <LineId Id="42" Count="0" />
-      <LineId Id="54" Count="1" />
+      <LineId Id="71" Count="1" />
       <LineId Id="50" Count="0" />
       <LineId Id="23" Count="0" />
       <LineId Id="76" Count="5" />
       <LineId Id="75" Count="0" />
-      <LineId Id="74" Count="0" />
-      <LineId Id="43" Count="0" />
-      <LineId Id="46" Count="3" />
-      <LineId Id="44" Count="1" />
       <LineId Id="4" Count="0" />
       <LineId Id="3" Count="0" />
       <LineId Id="5" Count="0" />
@@ -3388,7 +3184,6 @@ END_IF]]></ST>
       <LineId Id="7" Count="0" />
       <LineId Id="15" Count="0" />
       <LineId Id="14" Count="0" />
-      <LineId Id="16" Count="0" />
       <LineId Id="69" Count="0" />
       <LineId Id="65" Count="1" />
       <LineId Id="20" Count="1" />

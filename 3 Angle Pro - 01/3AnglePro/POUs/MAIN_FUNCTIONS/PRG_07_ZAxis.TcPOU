@@ -3,10 +3,9 @@
   <POU Name="PRG_07_ZAxis" Id="{12ac2dd4-f6da-4ca8-a1c9-34a1b40bca30}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_07_ZAxis
 VAR
-	dSawUpLimitValue: DINT;
-	dSawDownLimitValue: DINT;
 	bZAxisApproachingDownLimit: BOOL;
-
+	lSawUpLimitValue: LREAL;
+	lSawDownLimitValue: LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -1327,23 +1326,25 @@ END_VAR
     </Implementation>
     <Action Name="ACT_07_1_ZAxis" Id="{37eede63-3491-4d39-819a-d0a9e71862d9}">
       <Implementation>
-        <ST><![CDATA[dSawUpLimitValue := 336505360 ;		// Z-Axis up limit
-dSawDownLimitValue := 1080000000 ;	// Z-Axis down limit with 36" setup blade
+        <ST><![CDATA[lSawUpLimitValue := 0 ;			// Z-Axis up limit
+lSawDownLimitValue := 384.50 ;	// Z-Axis down limit with 36" setup blade
+
+GVL.Z2_Axis.AchsIn.IstPos;
 
 //Z-Axis Up limit encoder value
-IF GVL.PDO_Z1AX_IN.A545_AktPosition >= dSawUpLimitValue THEN
+IF GVL.Z2_Axis.AchsIn.IstPos >= lSawUpLimitValue THEN
 	bSawUpLimit := FALSE;
 ELSE bSawUpLimit := TRUE ;
 END_IF
 
 //Z-Axis Down limit encoder value
-IF GVL.PDO_Z1AX_IN.A545_AktPosition <= dSawDownLimitValue THEN
+IF GVL.Z2_Axis.AchsIn.IstPos <= lSawDownLimitValue THEN
 	bSawDownLimit := FALSE;
 ELSE bSawDownLimit := TRUE;
 END_IF
 
 // Z-Axis Approaching down limit
-IF GVL.PDO_Z1AX_IN.A545_AktPosition >= dSawDownLimitValue - 100000000 THEN
+IF GVL.Z2_Axis.AchsIn.IstPos >= lSawDownLimitValue - 35 THEN
 	bZAxisApproachingDownLimit := TRUE ;
 ELSE bZAxisApproachingDownLimit := FALSE ;
 END_IF
@@ -1363,13 +1364,17 @@ END_IF
       </Implementation>
     </Action>
     <LineIds Name="PRG_07_ZAxis.ACT_07_1_ZAxis">
-      <LineId Id="23" Count="1" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="35" Count="1" />
       <LineId Id="4" Count="1" />
-      <LineId Id="1" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="2" Count="0" />
       <LineId Id="6" Count="0" />
       <LineId Id="3" Count="0" />
       <LineId Id="21" Count="0" />
-      <LineId Id="14" Count="2" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="16" Count="0" />
       <LineId Id="18" Count="0" />
       <LineId Id="17" Count="0" />
       <LineId Id="20" Count="0" />

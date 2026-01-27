@@ -10,7 +10,6 @@
 	IN_EDM			AT%I*	: BOOL ;
 	OUT_STO			AT%I*	: BOOL ;
 	
-	//relayReset    AT %Q*  :BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

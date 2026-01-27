@@ -57,13 +57,13 @@ CASE iStepHome OF
 		
 	20:	// Move crosscut motor to centre
 	 
-		IF dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) - 20000000 AND bSafetyOK AND bMachineHoming THEN
+		IF lCrossCutEncoderValue < ((lRailLimitLeft + lRailLimitRight)/2) - 20 AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeLH := TRUE ;
 			bCrossCutHomeRH := FALSE ;
-		ELSIF dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) + 20000000 AND bSafetyOK AND bMachineHoming THEN
+		ELSIF lCrossCutEncoderValue > ((lRailLimitLeft + lRailLimitRight)/2) + 20 AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeRH := TRUE ;
 			bCrossCutHomeLH := FALSE ;
-		ELSIF (dCrossCutEncoderValue > ((dRailLimitLeft + dRailLimitRight)/2) - 20000000) OR (dCrossCutEncoderValue < ((dRailLimitLeft + dRailLimitRight)/2) + 20000000) AND bSafetyOK AND bMachineHoming THEN
+		ELSIF (lCrossCutEncoderValue > ((lRailLimitLeft + lRailLimitRight)/2) - 20) OR (lCrossCutEncoderValue < ((lRailLimitLeft + lRailLimitRight)/2) + 20) AND bSafetyOK AND bMachineHoming THEN
 			bCrossCutHomeLH := FALSE ;
 			bCrossCutHomeRH := FALSE ;
 			iStepHome := 30 ;
@@ -99,18 +99,6 @@ CASE iStepHome OF
 	
 	50: //Crosscut offset towards the control panel (CUT direction)		// 55.5 < CrosscutHome < 55.75
 	
-		(*IF (AnalogIn_DINT_CrossCut.Out.rScaled < 55.5) AND bMachineHoming AND bSafetyOK THEN
-			bCrossCutHomeLH := TRUE ;
-			bCrossCutHomeRH := FALSE ;
-		ELSIF (AnalogIn_DINT_CrossCut.Out.rScaled > 55.75) AND bMachineHoming AND bSafetyOK THEN
-			bCrossCutHomeRH := TRUE ;
-			bCrossCutHomeLH := FALSE ;
-		ELSIF (AnalogIn_DINT_CrossCut.Out.rScaled > 55.5) AND (AnalogIn_DINT_CrossCut.Out.rScaled < 55.75) THEN
-			bCrossCutHomeLH := FALSE ;
-			bCrossCutHomeRH := FALSE ;
-			iStepHome := 0 ;
-		END_IF*)
-
 		IF (AnalogIn_LREAL_CrossCut.Out.rScaled < 7) AND bMachineHoming AND bSafetyOK THEN
 			bCrossCutHomeLH := TRUE ;
 			bCrossCutHomeRH := FALSE ;
@@ -127,8 +115,8 @@ END_CASE]]></ST>
     </Implementation>
     <LineIds Name="PRG_09_HomePosition">
       <LineId Id="5" Count="0" />
-      <LineId Id="10" Count="98" />
-      <LineId Id="118" Count="10" />
+      <LineId Id="10" Count="87" />
+      <LineId Id="119" Count="9" />
       <LineId Id="117" Count="0" />
       <LineId Id="109" Count="0" />
       <LineId Id="9" Count="0" />

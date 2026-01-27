@@ -7,9 +7,7 @@ VAR_GLOBAL
 	bInlifeBeat: BOOL;
 		T_200ms: BOOL;
 	
-	
-// ########## Stober setup ##########//
-
+(* ########## Stober setup ########## *)
 	// Axis Carriage
 	Carriage_Axis :TAXmodule;
 	PDO_CARRIAGEax_IN AT %I* :stPDO_SI6_IN;
@@ -95,16 +93,83 @@ VAR_GLOBAL
 		Slave_MaxDiff := 20,			///Maximum deviation between Master and Slave for Positioning; default 20
 		Slave_MaxDiff_Enbl := 100		///Maximum deviation between Master and Slave for ENBL	; default 100
 									);
-	
-	
-	XDrivePot	:INT;
-	
-	refsens AT %I* :BOOL;
-	
-	
-// ########## Import ##########//
+
+									
+(* ########## PLC Variables ########## *)	
+
+// General
 	bSafetyOK		: BOOL ;
+	bAnyServoError: BOOL;
+	bAutoCrossCutErr: BOOL;
+
+// X-Drive
+	XDrivePot	:INT;
+	bXDriveFwd: BOOL;
+	bXDriveRev: BOOL;
+	bRipCutSpeed: BOOL;
+	rRipCutSpeedSetting: REAL;
+	
+// Saw blade
+	fbSawCurrent: FB_AnalogIn;
+	
+// Turret
+	AnalogIn_LREAL_Turret: FB_AnalogIn_LREAL;
+	bTurretMedianRange: BOOL;
+	bTurret045Range: BOOL;
+	bLostTurretRetainValues: BOOL;
+	bTurretCWEN: BOOL;
+	bTurretCCWEN: BOOL;
+	bTurretJogFast: BOOL;
+	SR_CWlimit: SR;
+	RS_TurretCentre: RS;
+	SR_CCWlimit: SR;
+	
+// Carriage
+	AnalogIn_LREAL_Carriage: FB_AnalogIn_LREAL;
+	bCarriageRightEN: BOOL;
+	bCarriageLeftEN: BOOL;
+	lCarriageMedian: LREAL;
+	bCarriageJogFast: BOOL;
+	bCarriageCentreRef: BOOL;
+
+// CrossCut
+	AnalogIn_LREAL_CrossCut: FB_AnalogIn_LREAL;
+	lRailLimitLeft: LREAL;
+	lRailLimitRight: LREAL;
+	lCrossCutEncoderValue: LREAL;
+	bCrossCutCentre: BOOL;
+	bCrossCutCentreForRotation: BOOL;
+	bApproachingLimitRight: BOOL;
+	bApproachingLimitLeft: BOOL;
+	rCrossCutSpeedMultiplier: REAL;
+	bEchainCrashPosLeft: BOOL;
+	bEchainCrashPosRight: BOOL;
+	bLostCrossCutRetainValues: BOOL;
+	bSawCutEN: BOOL;
+	bSawReturnEN: BOOL;
+	rCrossCutJogVelocity: REAL;
+	bCrossCutLeftLimit: BOOL;
+	bCrossCutRightLimit: BOOL;
+	
+// Z-Axis
+	bSawUpLimit: BOOL;
+	bSawDownLimit: BOOL;
+	bZAxisUpEN: BOOL;
+	bZAxisDownEN: BOOL;
+	rZAxisSpeed: REAL;
+	RS_DownLimit: RS;
+	
+// Automatic Cycles
+		// Auto CrossCut
 	bAutoCrossCut	: BOOL ;
+	bAutoCrossCutDouble: BOOL;
+	bAutoCrossCutReady: BOOL;
+	bAutoUp: BOOL;
+	bAutoDown: BOOL;
+	bAutoCut: BOOL;
+	bAutoReturn: BOOL;
+	
+		// Home Position
 	bMachineHoming: BOOL;
 	bTurretHome: BOOL;
 	bCarriageHomeRH: BOOL;
@@ -113,122 +178,21 @@ VAR_GLOBAL
 	bCrossCutHomeRH: BOOL;
 	bZAxisHome: BOOL;
 	
-	fbSawCurrent: FB_AnalogIn;
 	
-	bLimitLeft: BOOL;
-    bLimitRight: BOOL;
-	bCrossCutCentre: BOOL;
-	bCrossCutCentreForRotation: BOOL;
-	bApproachingLimitRight: BOOL;
-	bApproachingLimitLeft: BOOL;
-	dCrossCutMedian: DINT;
-	
-	//bTurretReturn: BOOL;
-	//TurretReturn: SR;
-	bTriggerReset: BOOL;
-	bTurretMedianRange: BOOL;
-	bTurretBufferSpeed: BOOL;
-	
-	//Ax1	:	AXIS_REF;
-	//Ax2	:	AXIS_REF;
-	//fbMC_GearIn: MC_GearIn;
-	
-	bSawUP		:	BOOL;
-	bSawDOWN	:	BOOL;
-	
-	bAnyServoError: BOOL;
-	bAutoCrossCutErr: BOOL;
-	
-	uTurretSSIMedian: UDINT;
-	bTurretUnderMedian: BOOL;
-	bTurretOverMedian: BOOL;
-	bTurret045Range: BOOL;
-	
-	RS_TriggerStopLH: RS;
-	RS_TriggerStopRH: RS;
-	
-	//fbCarriageValueFilter: FB_IntFilter;
-	rCrossCutSpeedMultiplier: REAL;
-	dRailLimitLeft: DINT;
-	dRailLimitRight: DINT;
-	bEchainCrashPosLeft: BOOL;
-	bEchainCrashPosRight: BOOL;
-	
-	bTurretMedian: BOOL;
-	//bTurretCW: BOOL;
-	//bTurretCCW: BOOL;
-	
-	// Visualization Variables
-	bRemote: BOOL;
-(*	bAutoCrossCutSingle: BOOL;
-	bAutoCrossCutDouble: BOOL;
-	bZAxisSlow: BOOL;
-	bZAxisMed: BOOL;
-	bZAxisFast: BOOL;
-	bTrtCCW: BOOL;
-	bTrtCW: BOOL;
-	bCrgLH: BOOL;
-	bCrgRH: BOOL;
-	bTeachLeft: BOOL;
-	bTeachRight: BOOL; *)
-	
-	bLostTurretRetainValues: BOOL;
-	bLostCrossCutRetainValues: BOOL;
-	R_TRIG_TurretValue: R_TRIG;
-
-
-	bXDriveFwd: BOOL;
-	bXDriveRev: BOOL;
-	bRipCutSpeed: BOOL;
-	bSawUpLimit: BOOL;
-	bSawDownLimit: BOOL;
-	bCarriageRightEN: BOOL;
-	bCarriageLeftEN: BOOL;
-	bTurretCWEN: BOOL;
-	bTurretCCWEN: BOOL;
-	bTurretJogFast: BOOL;
-	bWaterLine: BOOL;
-	bSawCutEN: BOOL;
-	bSawReturnEN: BOOL;
-	bZAxisUpEN: BOOL;
-	bZAxisDownEN: BOOL;
-	bAutoCrossCutDouble: BOOL;
-	bAutoCrossCutReady: BOOL;
-	lCarriageMedian: LREAL;
-	//bCarriageCentreReference: BOOL;
-	rCrossCutJogVelocity: REAL;
-	bCarriageJogFast: BOOL;
-	bTeachReadyLeft: BOOL;
-	bTeachReadyRight: BOOL;
-	bTeach: BOOL;
-	bCarriageCentreRef: BOOL;
-	//AnalogIn_DINT_Turret: FB_AnalogIn_DINT;
-	AnalogIn_LREAL_Turret: FB_AnalogIn_LREAL;
-	rZAxisSpeed: REAL;
-	rCarriageMedian: LREAL;
-	AnalogIn_LREAL_Carriage: FB_AnalogIn_LREAL;
-	bCrossCutLeftLimit: BOOL;
-	bCrossCutRightLimit: BOOL;
-	bAutoUp: BOOL;
-	bAutoDown: BOOL;
-	bAutoCut: BOOL;
-	bAutoReturn: BOOL;
-	RS_DownLimit: RS;
-	dCrossCutEncoderValue: DINT;
-	SR_CWlimit: SR;
-	RS_TurretCentre: RS;
-	SR_CCWlimit: SR;
-//	AnalogIn_DINT_CrossCut: FB_AnalogIn_DINT;
-	AnalogIn_LREAL_CrossCut: FB_AnalogIn_LREAL;
-	
-//########## HMI Controls ##########//
+(* ########## HMI Controls ########## *)
 	bHorn: BOOL;
 	bFieldLight: BOOL;
 	bCarriageEN: BOOL;
 	bTurretEN: BOOL;
-	bCrossCutEN: BOOL;
 	bCrossCutHMIsensor: BOOL;
 	bLiftingPosition: BOOL;
+	bHoseReel: BOOL;
+	bCableReel: BOOL;
+	bTeachReadyLeft: BOOL;
+	bTeachReadyRight: BOOL;
+	bTeach: BOOL;
+	bRemote: BOOL;
+	bWaterLine: BOOL;
 
 END_VAR]]></Declaration>
   </GVL>
