@@ -461,8 +461,8 @@ END_IF
                           </o>
                           <o>
                             <o n="Operand" t="Operand">
-                              <v n="Operand">"'C:\Users\Administrator\Documents\HMI\HMI_02\Complete PC MK1\Complete PC MK1\bin\UltraSpanControl.exe'"</v>
-                              <v n="Type">"STRING(INT#100)"</v>
+                              <v n="Operand">"'C:\Users\Administrator\Documents\HMI\HMI_04\Complete PC MK1\Complete PC MK1\bin\ProgressControl.exe'"</v>
+                              <v n="Type">"STRING(INT#99)"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>
                               <v n="Address">""</v>
@@ -480,7 +480,7 @@ END_IF
                           </o>
                           <o>
                             <o n="Operand" t="Operand">
-                              <v n="Operand">"'C:\Users\Administrator\Documents\HMI\HMI_02\Complete PC MK1\Complete PC MK1\bin'"</v>
+                              <v n="Operand">"'C:\Users\Administrator\Documents\HMI\HMI_04\Complete PC MK1\Complete PC MK1\bin'"</v>
                               <v n="Type">"STRING(INT#79)"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>

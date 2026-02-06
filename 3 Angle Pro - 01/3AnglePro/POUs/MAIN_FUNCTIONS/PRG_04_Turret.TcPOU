@@ -39,7 +39,7 @@ VAR
 	dTurretCCWLimit: DINT;
 	dTurretCWLimit: DINT;
 	dTurretMedian: DINT;
-	FB_Blinker_TurretMovement: FB_Blinker;
+
 
 END_VAR
 ]]></Declaration>

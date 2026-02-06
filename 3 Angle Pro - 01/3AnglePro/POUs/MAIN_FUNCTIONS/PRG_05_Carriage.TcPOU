@@ -10,7 +10,7 @@ VAR
 	lCarriageLeftLimit: LREAL;
 	lCarriageRightLimit: LREAL;
 	RS_CarriageCentre: RS;
-	FB_Blinker_CarriageMovement: FB_Blinker;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>

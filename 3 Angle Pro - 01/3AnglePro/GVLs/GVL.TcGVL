@@ -124,6 +124,7 @@ VAR_GLOBAL
 	RS_TurretCentre: RS;
 	SR_CCWlimit: SR;
 	bAllowTurretMovement: BOOL;
+	FB_Blinker_TurretMovement: FB_Blinker;
 	
 // Carriage
 	AnalogIn_LREAL_Carriage: FB_AnalogIn_LREAL;
@@ -132,7 +133,8 @@ VAR_GLOBAL
 	lCarriageMedian: LREAL;
 	bCarriageJogFast: BOOL;
 	bCarriageCentreRef: BOOL;
-
+	FB_Blinker_CarriageMovement: FB_Blinker;
+	
 // CrossCut
 	AnalogIn_LREAL_CrossCut: FB_AnalogIn_LREAL;
 	lRailLimitLeft: LREAL;
@@ -154,6 +156,7 @@ VAR_GLOBAL
 	bAllowCarriageMovement: BOOL;
 	
 // Z-Axis
+	AnalogIn_Zaxis: FB_AnalogIn_LREAL;
 	bSawUpLimit: BOOL;
 	bSawDownLimit: BOOL;
 	bZAxisUpEN: BOOL;
@@ -197,6 +200,13 @@ VAR_GLOBAL
 	bWaterLine: BOOL;
 	bCarriageMovement: BOOL;
 	bTurretMovement: BOOL;
+	bAutoCrossCutEnabled: BOOL;
+	iRipCutSpeed: INT;
+	
+	iTestGauge: REAL;
+	iTestVar: INT;
+	iTestVarHorizontal: INT;
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
