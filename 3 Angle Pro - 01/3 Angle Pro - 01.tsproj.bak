@@ -465,13 +465,17 @@
 		</System>
 		<Plc>
 			<Project GUID="{EC4FCDEB-9459-4E90-8A05-406BDFCA72DC}" Name="3AnglePro" PrjFilePath="3AnglePro\3AnglePro.plcproj" TmcFilePath="3AnglePro\3AnglePro.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{FB5AECB1-970B-15AD-39A2-1E20C0B89FDA}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="3AnglePro\3AnglePro.tmc" TmcHash="{046C5A84-9D24-ABB7-F8E8-CA3414F10628}">
 					<Name>3AnglePro Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>FasTask Inputs</Name>
 						<Var>
 							<Name>.PDO_CARRIAGEax_IN</Name>
+							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
+						</Var>
+						<Var>
+							<Name>.PDO_Z1ax_IN</Name>
 							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
 						</Var>
 						<Var>
@@ -483,15 +487,11 @@
 							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
 						</Var>
 						<Var>
-							<Name>.PDO_XDRIVEax_IN</Name>
-							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
-						</Var>
-						<Var>
-							<Name>.PDO_Z1ax_IN</Name>
-							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
-						</Var>
-						<Var>
 							<Name>.PDO_Z2ax_IN</Name>
+							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
+						</Var>
+						<Var>
+							<Name>.PDO_XDRIVEax_IN</Name>
 							<Type GUID="{EDB600AE-4732-3C7C-6932-2197761BC4DC}">stPDO_SI6_IN</Type>
 						</Var>
 					</Vars>

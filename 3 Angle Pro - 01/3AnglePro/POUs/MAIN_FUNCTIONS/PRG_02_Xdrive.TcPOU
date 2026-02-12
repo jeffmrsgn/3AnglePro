@@ -1476,7 +1476,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeAssign">
                     <o>
                       <o n="OutputItems" t="OutputItemList">
@@ -2644,20 +2644,12 @@ END_VAR
     </Implementation>
     <Action Name="ACT_02_1_Xdrive" Id="{078b1921-ebc0-4435-bd35-7ea07ea778ac}">
       <Implementation>
-        <ST><![CDATA[IF IN_iXDrivePotValue = 0 THEN
-	XDrivePot := 1;
-ELSIF
-	IN_iXDrivePotValue <> 0 THEN
-	XDrivePot := IN_iXDrivePotValue;
-END_IF
-
+        <ST><![CDATA[
 // rRipCutSpeedSetting
 ]]></ST>
       </Implementation>
     </Action>
     <LineIds Name="PRG_02_Xdrive.ACT_02_1_Xdrive">
-      <LineId Id="2" Count="4" />
-      <LineId Id="1" Count="0" />
       <LineId Id="8" Count="0" />
       <LineId Id="7" Count="0" />
       <LineId Id="9" Count="0" />

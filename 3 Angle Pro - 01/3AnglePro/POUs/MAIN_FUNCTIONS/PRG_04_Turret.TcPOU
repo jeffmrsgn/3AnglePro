@@ -1045,6 +1045,44 @@ END_VAR
                                   </o>
                                   <v n="Id">599L</v>
                                 </o>
+                                <o>
+                                  <o n="Operand" t="Operand">
+                                    <v n="Operand">"bMachineHoming"</v>
+                                    <v n="Type">"BOOL"</v>
+                                    <v n="Comment">""</v>
+                                    <v n="SymbolComment">""</v>
+                                    <v n="Address">""</v>
+                                    <o n="Flags" t="Flags">
+                                      <v n="Flags">0</v>
+                                      <v n="Fixed">false</v>
+                                      <v n="Extensible">false</v>
+                                    </o>
+                                    <v n="LValue">false</v>
+                                    <v n="Boolean">false</v>
+                                    <v n="IsInstance">false</v>
+                                    <v n="Id">906L</v>
+                                  </o>
+                                  <v n="Id">905L</v>
+                                </o>
+                                <o>
+                                  <o n="Operand" t="Operand">
+                                    <v n="Operand">"bCrossCutPosition"</v>
+                                    <v n="Type">"BOOL"</v>
+                                    <v n="Comment">""</v>
+                                    <v n="SymbolComment">""</v>
+                                    <v n="Address">""</v>
+                                    <o n="Flags" t="Flags">
+                                      <v n="Flags">0</v>
+                                      <v n="Fixed">false</v>
+                                      <v n="Extensible">false</v>
+                                    </o>
+                                    <v n="LValue">false</v>
+                                    <v n="Boolean">false</v>
+                                    <v n="IsInstance">false</v>
+                                    <v n="Id">908L</v>
+                                  </o>
+                                  <v n="Id">907L</v>
+                                </o>
                               </l2>
                               <o n="InputParam" t="ParamList">
                                 <l2 n="Names" />
@@ -2142,11 +2180,6 @@ END_VAR
                                 <v n="Fixed">true</v>
                                 <v n="Extensible">false</v>
                               </o>
-                              <o>
-                                <v n="Flags">1</v>
-                                <v n="Fixed">true</v>
-                                <v n="Extensible">false</v>
-                              </o>
                             </l2>
                             <l2 n="InputItems" cet="BoxTreeOperand">
                               <o>
@@ -2224,25 +2257,6 @@ END_VAR
                                   <v n="Id">851L</v>
                                 </o>
                                 <v n="Id">850L</v>
-                              </o>
-                              <o>
-                                <o n="Operand" t="Operand">
-                                  <v n="Operand">"SR_CCWlimit.Q1"</v>
-                                  <v n="Type">"BOOL"</v>
-                                  <v n="Comment">""</v>
-                                  <v n="SymbolComment">""</v>
-                                  <v n="Address">""</v>
-                                  <o n="Flags" t="Flags">
-                                    <v n="Flags">0</v>
-                                    <v n="Fixed">false</v>
-                                    <v n="Extensible">false</v>
-                                  </o>
-                                  <v n="LValue">false</v>
-                                  <v n="Boolean">false</v>
-                                  <v n="IsInstance">false</v>
-                                  <v n="Id">853L</v>
-                                </o>
-                                <v n="Id">852L</v>
                               </o>
                               <o>
                                 <o n="Operand" t="Operand">
@@ -3522,11 +3536,6 @@ END_VAR
                                 <v n="Fixed">true</v>
                                 <v n="Extensible">false</v>
                               </o>
-                              <o>
-                                <v n="Flags">1</v>
-                                <v n="Fixed">true</v>
-                                <v n="Extensible">false</v>
-                              </o>
                             </l2>
                             <l2 n="InputItems" cet="BoxTreeOperand">
                               <o>
@@ -3585,25 +3594,6 @@ END_VAR
                                   <v n="Id">831L</v>
                                 </o>
                                 <v n="Id">830L</v>
-                              </o>
-                              <o>
-                                <o n="Operand" t="Operand">
-                                  <v n="Operand">"SR_CWlimit.Q1"</v>
-                                  <v n="Type">"BOOL"</v>
-                                  <v n="Comment">""</v>
-                                  <v n="SymbolComment">""</v>
-                                  <v n="Address">""</v>
-                                  <o n="Flags" t="Flags">
-                                    <v n="Flags">0</v>
-                                    <v n="Fixed">false</v>
-                                    <v n="Extensible">false</v>
-                                  </o>
-                                  <v n="LValue">false</v>
-                                  <v n="Boolean">false</v>
-                                  <v n="IsInstance">false</v>
-                                  <v n="Id">833L</v>
-                                </o>
-                                <v n="Id">832L</v>
                               </o>
                               <o>
                                 <o n="Operand" t="Operand">
@@ -4090,8 +4080,8 @@ END_IF
 (* Turret slow downs approaching 90°, -90° end limits and 0° *)	
 IF  (AnalogIn_LREAL_Turret.Out.rScaled >= 88 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote) OR (bTurretHome AND bMachineHoming))) OR
 	(AnalogIn_LREAL_Turret.Out.rScaled <= -88 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote) OR (bTurretHome AND bMachineHoming))) OR
-	(AnalogIn_LREAL_Turret.Out.rScaled >= -2 AND AnalogIn_LREAL_Turret.Out.rScaled < 0 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote))) OR
-	(AnalogIn_LREAL_Turret.Out.rScaled <= 2 AND AnalogIn_LREAL_Turret.Out.rScaled > 0 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote)))
+	(AnalogIn_LREAL_Turret.Out.rScaled >= -2 AND AnalogIn_LREAL_Turret.Out.rScaled < 0 AND (bTurretRt OR (IN_bRemoteTrtCW AND bRemote) OR (bTurretCuttingPosCW AND bCrossCutPosition))) OR
+	(AnalogIn_LREAL_Turret.Out.rScaled <= 2 AND AnalogIn_LREAL_Turret.Out.rScaled > 0 AND (bTurretLt OR (IN_bRemoteTrtCCW AND bRemote) OR (bTurretCuttingPosCCW AND bCrossCutPosition)))
 THEN
 	bTurretJogFast := FALSE ;
 ELSE
@@ -4099,8 +4089,8 @@ ELSE
 END_IF
 
 (* Trigger stop turret at ~0° *)
-IF GVL.Turret_Axis.AchsIn.IstPos > lTurretMedian - 0.05 AND
-	GVL.Turret_Axis.AchsIn.IstPos < lTurretMedian + 0.05
+IF GVL.Turret_Axis.AchsIn.IstPos > lTurretMedian - 0.04 AND
+	GVL.Turret_Axis.AchsIn.IstPos < lTurretMedian + 0.04
 THEN
 	bTurretMedianRange := TRUE ;
 ELSE bTurretMedianRange := FALSE ;

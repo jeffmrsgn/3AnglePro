@@ -103,11 +103,8 @@ VAR_GLOBAL
 	bAutoCrossCutErr: BOOL;
 
 // X-Drive
-	XDrivePot	:INT;
 	bXDriveFwd: BOOL;
 	bXDriveRev: BOOL;
-	bRipCutSpeed: BOOL;
-	rRipCutSpeedSetting: REAL;
 	
 // Saw blade
 	fbSawCurrent: FB_AnalogIn;
@@ -201,7 +198,6 @@ VAR_GLOBAL
 	bFieldLight: BOOL;
 	bCarriageEN: BOOL;
 	bTurretEN: BOOL;
-	bCrossCutHMIsensor: BOOL;
 	bLiftingPosition: BOOL;
 	bHoseReel: BOOL;
 	bCableReel: BOOL;
@@ -225,10 +221,7 @@ VAR_GLOBAL
 	bCrossCutPositionActivate: BOOL;
 	bAutoCrossCutDoublePass: BOOL;
 	bAutoCrossCutInProgress: BOOL;
-	
-	iTestGauge: REAL;
-	iTestVar: INT;
-	iTestVarHorizontal: INT;
+	bDriveFast: BOOL;
 	
 END_VAR]]></Declaration>
   </GVL>
